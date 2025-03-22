@@ -2,6 +2,7 @@ extends Node
 
 var powers = []
 var collectibleLeft = []
+var collectibleCount = 0
 var currentLevel
 
 var level1Scene = "res://emma/gameTest.tscn"

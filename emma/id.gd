@@ -4,6 +4,7 @@ const FOLLOW_SPEED = 4.0
 
 var player
 var following = false
+var first = false
 var offset = 10
 
 func _process(delta):
@@ -21,3 +22,8 @@ func _process(delta):
 func _on_body_entered(body: Node2D) -> void:
 	player = body
 	following = true
+	if not first:
+		print("first")
+		Global.collectibleCount += 1
+		first = true
+		offset *= Global.collectibleCount
