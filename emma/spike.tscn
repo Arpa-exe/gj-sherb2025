@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://q0iek7qg4fsf"]
+
+[ext_resource type="Texture2D" uid="uid://lk2wpb058ub2" path="res://Assets/spikes/Spikes.png" id="1_uvbsk"]
+
+[node name="spike" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uvbsk")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
+polygon = PackedVector2Array(-52, -25, -64, 9, -64, 32, -36, 32, -36, 8, -48, -25)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
+polygon = PackedVector2Array(-30, 10, -30, 32, -2, 32, -2, 8, -14, -27, -18, -27)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
+polygon = PackedVector2Array(14, -20, 2, 9, 2, 32, 30, 32, 30, 8, 18, -20)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
+polygon = PackedVector2Array(47, -31, 36, 8, 36, 32, 64, 32, 64, 8, 52, -31)
