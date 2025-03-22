@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://bl017mr5d51hg"]
+
+[ext_resource type="Texture2D" uid="uid://ctr1tscmm6lhs" path="res://Assets/Lightning/VFX1/Sprite-sheet/Sprite-sheet.png" id="1_g280p"]
+[ext_resource type="Script" path="res://oli/scripts/light_dash.gd" id="2_cxj3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3p8o"]
+atlas = ExtResource("1_g280p")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m2lc"]
+atlas = ExtResource("1_g280p")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8rls"]
+atlas = ExtResource("1_g280p")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i22k"]
+atlas = ExtResource("1_g280p")
+region = Rect2(768, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbsfc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3p8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m2lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8rls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i22k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 21.0
+}]
+
+[node name="LighDash" type="AnimatedSprite2D"]
+position = Vector2(1, 3.8147e-06)
+scale = Vector2(0.317383, 0.185547)
+sprite_frames = SubResource("SpriteFrames_bbsfc")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("2_cxj3k")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

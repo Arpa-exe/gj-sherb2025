@@ -1,0 +1,110 @@
+[gd_scene load_steps=17 format=3 uid="uid://dtru3x2gt18gv"]
+
+[ext_resource type="Texture2D" uid="uid://d1nt15qrbj257" path="res://Assets/Smoke Effects/Smoke Effect 01/Smoke VFX 2.png" id="1_vsbov"]
+[ext_resource type="Script" path="res://oli/scripts/charge_up.gd" id="2_dm65o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffed4"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpj4s"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv260"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ne2t"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7axvy"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tgt2"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkstx"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gkwd"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh5d3"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv4vh"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y6pi"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fk2v"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg4ul"]
+atlas = ExtResource("1_vsbov")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rp7wk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffed4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpj4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv260")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ne2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7axvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tgt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkstx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gkwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh5d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv4vh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y6pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fk2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg4ul")
+}],
+"loop": false,
+"name": &"default",
+"speed": 17.0
+}]
+
+[node name="ChargeUp" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_rp7wk")
+autoplay = "default"
+frame = 12
+frame_progress = 1.0
+script = ExtResource("2_dm65o")
