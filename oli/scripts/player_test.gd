@@ -58,7 +58,6 @@ func _physics_process(delta: float) -> void:
 						spawn_dash(direction)
 						var tween = create_tween()
 						tween.tween_property(self, "global_position:x", global_position.x + 80 * direction, 0.2)
-						velocity.y = JUMP_VELOCITY / 2
 						is_boing = false
 						crystal2UI.visible = false
 				_:
@@ -102,7 +101,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	print("player hitbox ", area.get_parent().get_parent().name)
+	print("player hitbox ", area.get_parent().get_parent().get_parent())
 	print("area: ", area)
 	if (area.get_parent().get_parent().name == "Sign"):
 		if Global.currentLevel == "1": # changed level 1 to 2 
@@ -111,8 +110,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			get_tree().change_scene_to_file(Global.level3Scene)
 		elif Global.currentLevel == "3":
 			get_tree().change_scene_to_file(Global.endScene)
-	elif area.get_parent().get_parent().name == "spike":
-		die()
+	elif area.get_parent().get_parent().get_parent() != null:
+		if area.get_parent().get_parent().get_parent().name == "Spikes":
+			die()
 	pass # Replace with function body.
 
 func die():
