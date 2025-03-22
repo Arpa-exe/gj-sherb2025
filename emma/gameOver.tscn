@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8ypotihl528v"]
+[gd_scene load_steps=3 format=3 uid="uid://ilf1xr08o6d5"]
 
 [ext_resource type="Script" path="res://emma/game_over.gd" id="1_4ldxi"]
 [ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="2_x5jo0"]

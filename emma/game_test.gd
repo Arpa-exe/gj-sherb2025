@@ -8,7 +8,7 @@ extends Node2D
 var paused = false
 
 func _ready() -> void:
-	Global.currentLevel = "Level1"
+	Global.currentLevel = "1"
 	pauseMenu.visible = false
 	if len(Global.powers) == 0:
 		nextLabel.text = str("No power picked up")
@@ -36,10 +36,8 @@ func _process(delta: float) -> void:
 				var currentItem = crystal2UI
 				var currentArrayIndex = Global.powers.find("bing")
 				moveChild(currentItem, currentArrayIndex)
-				var afterNodeIndex = crystal2UI.get_index()
 			elif  power == "boing":
 				var currentItem = crystalUI
-				var currentNodeIndex = crystalUI.get_index()
 				var currentArrayIndex = Global.powers.find("boing")
 				moveChild(currentItem, currentArrayIndex)
 

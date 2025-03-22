@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2745shly4cb5"]
+
+[ext_resource type="Script" path="res://emma/key.gd" id="1_8i5m5"]
+[ext_resource type="Texture2D" uid="uid://esdqkbkcbuw4" path="res://Assets/emma/pixel_icons_by_oceansdream.png" id="1_ho326"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ixl"]
+atlas = ExtResource("1_ho326")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_malrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53ixl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8qf8k"]
+radius = 4.24137
+height = 15.5863
+
+[node name="key" type="Area2D"]
+scale = Vector2(0.75, 0.75)
+collision_mask = 2
+script = ExtResource("1_8i5m5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_malrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+rotation = -0.760964
+shape = SubResource("CapsuleShape2D_8qf8k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

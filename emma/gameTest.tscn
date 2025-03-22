@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ch80i4ygjkrcm"]
+[gd_scene load_steps=16 format=4 uid="uid://7utamst6wgy4"]
 
 [ext_resource type="Script" path="res://emma/game_test.gd" id="1_0vnid"]
 [ext_resource type="Texture2D" uid="uid://cgrm7vfgyiqn0" path="res://Assets/Kiings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_yka5a"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="7_oqghe"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="8_i2d0b"]
 [ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="9_0f2xy"]
-[ext_resource type="PackedScene" uid="uid://q0iek7qg4fsf" path="res://emma/spike.tscn" id="10_rqfxn"]
+[ext_resource type="PackedScene" uid="uid://b7265ofaplqs0" path="res://emma/spike.tscn" id="10_rqfxn"]
+[ext_resource type="PackedScene" uid="uid://dpeoac884inoh" path="res://emma/mp_3.tscn" id="11_gis2u"]
+[ext_resource type="PackedScene" uid="uid://b2745shly4cb5" path="res://emma/key.tscn" id="12_1lsbx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kgtm"]
 texture = ExtResource("2_yka5a")
@@ -589,7 +591,7 @@ size = Vector2(506, 20)
 script = ExtResource("1_0vnid")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD//wEAAAAEAAIAAAAAAAEAAAAEAAIAAAABAAEAAAAEAAIAAAD+/wEAAAAEAAIAAAD9/wEAAAAEAAIAAAACAAEAAAAbAAgAAAADAAEAAAAcAAgAAAADAP7/AAACAAIAAAAEAP7/AAAEAAIAAAAFAP7/AAAEAAIAAAADAP//AAACAAMAAAADAAAAAAACAAMAAAAEAP//AAADAAMAAAAFAP//AAAEAAMAAAAEAAAAAAADAAQAAAD+/wIAAAAEAAMAAAD//wIAAAAEAAMAAAAAAAIAAAAEAAMAAAABAAIAAAAEAAMAAAACAAIAAAAEAAMAAAD9/wIAAAAEAAMAAAADAAIAAAAEAAMAAAAEAAEAAAADAAUAAAAEAAIAAAARAAUAAAAFAAAAAAARAAUAAAAFAAEAAAARAAUAAAAFAAIAAAARAAUAAAA=")
+tile_map_data = PackedByteArray("AAD//wEAAAAEAAIAAAAAAAEAAAAEAAIAAAABAAEAAAAEAAIAAAD+/wEAAAAEAAIAAAD9/wEAAAAEAAIAAAACAAEAAAAbAAgAAAADAAEAAAAcAAgAAAADAP7/AAACAAIAAAAEAP7/AAAEAAIAAAAFAP7/AAAEAAIAAAADAP//AAACAAMAAAADAAAAAAACAAMAAAAEAP//AAADAAMAAAAFAP//AAAEAAMAAAAEAAAAAAADAAQAAAD+/wIAAAAEAAMAAAD//wIAAAAEAAMAAAAAAAIAAAAEAAMAAAABAAIAAAAEAAMAAAACAAIAAAAEAAMAAAD9/wIAAAAEAAMAAAADAAIAAAAEAAMAAAAEAAEAAAADAAUAAAAEAAIAAAARAAUAAAAFAAAAAAARAAUAAAAFAAEAAAARAAUAAAAFAAIAAAARAAUAAAD5/wEAAAADAAoAAAD6/wEAAAAEAAoAAAD7/wEAAAAFAAoAAAD8/wEAAAAGAAoAAAD1/wEAAAADAAoAAAD2/wEAAAAEAAoAAAD3/wEAAAAFAAoAAAD4/wEAAAAGAAoAAAD8/wIAAAAPAAUAAAD7/wIAAAAPAAUAAAD6/wIAAAAPAAUAAAD4/wIAAAAPAAUAAAD3/wIAAAAPAAUAAAD2/wIAAAAPAAUAAAD5/wIAAAAPAAUAAAD1/wIAAAAPAAUAAAA=")
 tile_set = SubResource("TileSet_y4em4")
 
 [node name="Crystal" parent="." instance=ExtResource("3_hws4l")]
@@ -715,6 +717,12 @@ text = "Quit :("
 [node name="spike" parent="." instance=ExtResource("10_rqfxn")]
 position = Vector2(82, -38)
 scale = Vector2(0.25, 0.25)
+
+[node name="mp3" parent="." instance=ExtResource("11_gis2u")]
+position = Vector2(55, -42)
+
+[node name="key" parent="." instance=ExtResource("12_1lsbx")]
+position = Vector2(-14, 4)
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/pauseButton" to="." method="_on_pause_button_pressed"]
