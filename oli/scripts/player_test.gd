@@ -129,7 +129,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			get_tree().change_scene_to_file(Global.endScene)
 	elif area.get_parent().name == "Keys":
 		print('collectibleCount: ', Global.collectibleCount)
-		var count = Global.collectibleCount
+		var count = Global.collectibleCount - 1
 		collectibles[count].visible = false
 		print('key')
 	elif (area.get_parent().name == "enemyFireSlime"):
