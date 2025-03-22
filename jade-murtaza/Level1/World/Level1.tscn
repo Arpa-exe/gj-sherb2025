@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c45kowmddkis8"]
+[gd_scene load_steps=20 format=4 uid="uid://c45kowmddkis8"]
 
 [ext_resource type="Texture2D" uid="uid://csmy05qpr7ahr" path="res://jade-murtaza/Level1/Assets/lab_tileset_LITE/lab_tileset_LITE.png" id="1_6gple"]
 [ext_resource type="Script" path="res://jade-murtaza/Level1/level_1.gd" id="1_wiufj"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="3_awde4"]
 [ext_resource type="PackedScene" uid="uid://dobhgepw1f4qi" path="res://oli/DashCrystal.tscn" id="3_s45ui"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="4_2kqun"]
-[ext_resource type="LabelSettings" path="res://emma/label.tres" id="5_sblom"]
+[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="5_sblom"]
+[ext_resource type="Texture2D" uid="uid://bedhtneeflcy4" path="res://Assets/emma/key.png" id="6_ha4g6"]
 [ext_resource type="PackedScene" uid="uid://b7265ofaplqs0" path="res://emma/spike.tscn" id="7_kn04i"]
-[ext_resource type="PackedScene" path="res://emma/key.tscn" id="8_3m35k"]
+[ext_resource type="PackedScene" uid="uid://b2745shly4cb5" path="res://emma/key.tscn" id="8_3m35k"]
 [ext_resource type="PackedScene" uid="uid://cf8d1p7r33ebe" path="res://oli/Crystal.tscn" id="9_n7pc0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_id7cv"]
@@ -454,6 +455,9 @@ pattern_2 = SubResource("TileMapPattern_7ybwr")
 pattern_3 = SubResource("TileMapPattern_ny86s")
 pattern_4 = SubResource("TileMapPattern_thhf7")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7phb"]
+bg_color = Color(0.1066, 0.82, 0.13038, 1)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_wiufj")
 
@@ -477,47 +481,84 @@ position = Vector2(-13, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 31.0
+offset_bottom = 61.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_h7phb")
+max_value = 4.0
+value = 4.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -11.5
+offset_right = 30.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Health: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="nextLabel" type="Label" parent="CanvasLayer/HBoxContainer/HBoxContainer"]
+[node name="nextLabel" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Next power: "
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("3_awde4")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("4_2kqun")
 
-[node name="missingContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="missingContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/missingContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"]
 layout_mode = 2
-text = "Powers left to pick up: "
+text = "Collectible left to pick up: "
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/missingContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"]
 layout_mode = 2
-texture = ExtResource("3_awde4")
+texture = ExtResource("6_ha4g6")
+expand_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer/missingContainer"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"]
 layout_mode = 2
-texture = ExtResource("4_2kqun")
+texture = ExtResource("6_ha4g6")
+expand_mode = 3
 
-[node name="pauseButton" type="Button" parent="CanvasLayer/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"]
+layout_mode = 2
+texture = ExtResource("6_ha4g6")
+expand_mode = 3
+
+[node name="pauseButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 10

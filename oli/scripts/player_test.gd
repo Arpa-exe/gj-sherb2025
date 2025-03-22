@@ -5,16 +5,26 @@ const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-@onready var nextLabel = $CanvasLayer/HBoxContainer/HBoxContainer/nextLabel
-@onready var collectibleUI = $"../CanvasLayer/HBoxContainer/HBoxContainer/TextureRect"
-@onready var collectibleUI2 = $"../CanvasLayer/HBoxContainer/HBoxContainer/TextureRect2"
+@onready var nextLabel = $CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/nextLabel
+@onready var collectibleUI = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect"
+@onready var collectibleUI2 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect2"
+@onready var collectibleUI3 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect3"
 
-@onready var missingLabel = $"../CanvasLayer/HBoxContainer/missingContainer/Label"
-@onready var missingCrystalUI = $"../CanvasLayer/HBoxContainer/missingContainer/TextureRect"
-@onready var missingCrystal2UI = $"../CanvasLayer/HBoxContainer/missingContainer/TextureRect2"
+@onready var missingLabel = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/Label"
+@onready var missingCrystalUI = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/TextureRect"
+@onready var missingCrystal2UI = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/TextureRect2"
+
+@onready var progressBar = $"../CanvasLayer/VBoxContainer/ProgressBar"
+@onready var progressBarLabel = $"../CanvasLayer/VBoxContainer/ProgressBar/Label"
 
 var is_boing = false
 var alive = true
+var damage = true
+var cooldown = 2 # 2 seconds before being able to be hit again
+var timer_cooldown = 0
+
+func _ready() -> void:
+	Global.currentHealth = 4
 
 func catch_crystal():
 	Global.powers.push_back("boing")
@@ -25,6 +35,10 @@ func catch_dash_crystal():
 	missingCrystal2UI.visible = false
 
 func _physics_process(delta: float) -> void:
+	if timer_cooldown > 0:
+		timer_cooldown -= delta
+		if timer_cooldown <= 0:
+			damage = true
 	if alive:
 		if len(Global.collectibleLeft) == 0:
 			missingLabel.visible = false
@@ -112,7 +126,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			get_tree().change_scene_to_file(Global.endScene)
 	elif area.get_parent().get_parent().get_parent() != null:
 		if area.get_parent().get_parent().get_parent().name == "Spikes":
-			die()
+			takeHit(1)
 	pass # Replace with function body.
 
 func die():
@@ -128,3 +142,22 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _on_stomp_area_area_entered(area: Area2D) -> void:
 	if (area.get_parent().name == "enemySlime"):
 		area.get_parent().die()
+
+func takeHit(damageLevel):
+	if damage: 
+		Global.currentHealth -= damageLevel
+		var healthTween = create_tween()
+		healthTween.tween_property(progressBar, "value", Global.currentHealth, 1)
+		progressBarLabel.text = str("Health: ", Global.currentHealth, "/4")
+		
+		var redTween = create_tween()
+		for n in 4:
+			redTween.tween_property(animated_sprite_2d, "modulate", Color.MEDIUM_VIOLET_RED, 0.25)
+			redTween.tween_property(animated_sprite_2d, "modulate", Color(1,1,1,1), 0.25)
+			n = n+1
+		if Global.currentHealth <= 0:
+			animated_sprite_2d.animation = "Die"
+			die()
+		# Cooldown after hit gives player - 3 seconds before hit again 
+		damage = false
+		timer_cooldown = cooldown
