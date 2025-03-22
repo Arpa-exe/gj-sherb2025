@@ -646,7 +646,23 @@ visible = false
 layout_mode = 2
 texture = ExtResource("7_oyf6y")
 
+[node name="missingContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/missingContainer"]
+layout_mode = 2
+text = "Powers left to pick up: "
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/missingContainer"]
+layout_mode = 2
+texture = ExtResource("6_4nj7s")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer/missingContainer"]
+layout_mode = 2
+texture = ExtResource("7_oyf6y")
+
 [node name="pauseButton" type="Button" parent="CanvasLayer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 text = "pause"
