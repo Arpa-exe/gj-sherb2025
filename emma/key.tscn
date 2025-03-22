@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2745shly4cb5"]
+
+[ext_resource type="Texture2D" uid="uid://esdqkbkcbuw4" path="res://Assets/emma/pixel_icons_by_oceansdream.png" id="1_ho326"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ixl"]
+atlas = ExtResource("1_ho326")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_malrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53ixl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="key" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_malrs")

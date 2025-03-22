@@ -13,9 +13,9 @@ func _process(delta: float) -> void:
 
 func _on_restart_pressed() -> void:
 	Global.reset()
-	if Global.currentLevel == "Level1": 
+	if Global.currentLevel == "1": 
 		get_tree().change_scene_to_file(Global.level1Scene)
-	elif Global.currentLevel == "Level2": 
+	elif Global.currentLevel == "2": 
 		get_tree().change_scene_to_file(Global.level2Scene)
 	else:
 		get_tree().change_scene_to_file(Global.level3Scene)

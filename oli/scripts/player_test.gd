@@ -18,17 +18,15 @@ var alive = true
 
 func catch_crystal():
 	Global.powers.push_back("boing")
-	Global.powersLeft.erase("boing")
 	missingCrystalUI.visible = false
 	
 func catch_dash_crystal():
 	Global.powers.push_back("bing")
-	Global.powersLeft.erase("bing")
 	missingCrystal2UI.visible = false
 
 func _physics_process(delta: float) -> void:
 	if alive:
-		if len(Global.powersLeft) == 0:
+		if len(Global.collectibleLeft) == 0:
 			missingLabel.visible = false
 		else:
 			missingLabel.visible = true
@@ -107,11 +105,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	print("player hitbox ", area.get_parent().get_parent().name)
 	print("area: ", area)
 	if (area.get_parent().get_parent().name == "Sign"):
-		if Global.currentLevel == "Level1": # changed level 1 to 2 
+		if Global.currentLevel == "1": # changed level 1 to 2 
 			get_tree().change_scene_to_file(Global.level2Scene) # changed level 2 to 1
-		elif Global.currentLevel == "Level2": # changed level 2 to 1
+		elif Global.currentLevel == "2": # changed level 2 to 1
 			get_tree().change_scene_to_file(Global.level3Scene)
-		elif Global.currentLevel == "Level3":
+		elif Global.currentLevel == "3":
 			get_tree().change_scene_to_file(Global.endScene)
 	elif area.get_parent().get_parent().name == "spike":
 		die()

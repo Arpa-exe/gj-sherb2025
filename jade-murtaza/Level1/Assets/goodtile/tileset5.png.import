@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://esdqkbkcbuw4"
-path="res://.godot/imported/pixel_icons_by_oceansdream.png-df8266e7a11c9f8e84b787263a26e86f.ctex"
+uid="uid://nw8tuuvenu2y"
+path="res://.godot/imported/tileset5.png-8b3ae9474707f9e33f5823dc9e30ca8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/emma/pixel_icons_by_oceansdream.png"
-dest_files=["res://.godot/imported/pixel_icons_by_oceansdream.png-df8266e7a11c9f8e84b787263a26e86f.ctex"]
+source_file="res://jade-murtaza/Level1/Assets/goodtile/tileset5.png"
+dest_files=["res://.godot/imported/tileset5.png-8b3ae9474707f9e33f5823dc9e30ca8e.ctex"]
 
 [params]
 

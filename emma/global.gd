@@ -1,7 +1,7 @@
 extends Node
 
 var powers = []
-var powersLeft = ["bing", "boing"]
+var collectibleLeft = []
 var currentLevel
 
 var level1Scene = "res://emma/gameTest.tscn"
@@ -24,4 +24,10 @@ func _process(delta: float) -> void:
 
 func reset():
 	powers = []
-	powersLeft = ["bing", "boing"]
+	if currentLevel != null:
+		if currentLevel == "1":
+			collectibleLeft = ["id"]
+		elif currentLevel == "2":
+			collectibleLeft = ["key"]
+		elif currentLevel == "3":
+			collectibleLeft = ["mp3"]
