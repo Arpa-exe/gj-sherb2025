@@ -6,8 +6,8 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var nextLabel = $CanvasLayer/HBoxContainer/HBoxContainer/nextLabel
-@onready var crystalUI = $"../CanvasLayer/HBoxContainer/HBoxContainer/TextureRect"
-@onready var crystal2UI = $"../CanvasLayer/HBoxContainer/HBoxContainer/TextureRect2"
+@onready var collectibleUI = $"../CanvasLayer/HBoxContainer/HBoxContainer/TextureRect"
+@onready var collectibleUI2 = $"../CanvasLayer/HBoxContainer/HBoxContainer/TextureRect2"
 
 @onready var missingLabel = $"../CanvasLayer/HBoxContainer/missingContainer/Label"
 @onready var missingCrystalUI = $"../CanvasLayer/HBoxContainer/missingContainer/TextureRect"
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 					tween.tween_property(self, "global_position:y", global_position.y - 48, 0.1)
 					velocity.y = JUMP_VELOCITY
 					is_boing = false
-					crystalUI.visible = false
+					collectibleUI.visible = false
 				"bing":
 					var direction := Input.get_axis("move_left", "move_right")
 					if direction == 0:
@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 						tween.tween_property(self, "global_position:x", global_position.x + 80 * direction, 0.2)
 						velocity.y = JUMP_VELOCITY / 2
 						is_boing = false
-						crystal2UI.visible = false
+						collectibleUI2.visible = false
 				_:
 					pass
 			
@@ -126,6 +126,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 
 func _on_stomp_area_area_entered(area: Area2D) -> void:
-	print("areaaa: ", area.get_parent().name)
 	if (area.get_parent().name == "enemySlime"):
 		area.get_parent().die()
