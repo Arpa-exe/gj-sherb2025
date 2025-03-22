@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://7utamst6wgy4"]
+[gd_scene load_steps=19 format=4 uid="uid://7utamst6wgy4"]
 
 [ext_resource type="Script" path="res://emma/game_test.gd" id="1_0vnid"]
 [ext_resource type="Texture2D" uid="uid://cgrm7vfgyiqn0" path="res://Assets/Kiings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_yka5a"]
@@ -589,6 +589,8 @@ sources/0 = SubResource("TileSetAtlasSource_3kgtm")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7jto"]
 size = Vector2(506, 20)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_taqon"]
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0vnid")
 
@@ -731,6 +733,15 @@ position = Vector2(-108, 7)
 
 [node name="enemyFireSlime" parent="." instance=ExtResource("14_kfl6s")]
 position = Vector2(-50, -4)
+
+[node name="markers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="markers"]
+
+[node name="Marker2D2" type="Marker2D" parent="markers"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_taqon")
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/pauseButton" to="." method="_on_pause_button_pressed"]
