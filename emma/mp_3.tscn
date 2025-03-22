@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpeoac884inoh"]
+[gd_scene load_steps=6 format=3 uid="uid://dpeoac884inoh"]
 
 [ext_resource type="Texture2D" uid="uid://esdqkbkcbuw4" path="res://Assets/emma/pixel_icons_by_oceansdream.png" id="1_4d2vk"]
+[ext_resource type="Script" path="res://emma/mp_3.gd" id="1_l437f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkmft"]
 atlas = ExtResource("1_4d2vk")
@@ -17,7 +18,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="mp3" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb72s"]
+size = Vector2(21, 23)
+
+[node name="mp3" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_mask = 2
+script = ExtResource("1_l437f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_myfo1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_lb72s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
