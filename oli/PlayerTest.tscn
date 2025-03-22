@@ -136,3 +136,11 @@ frame_progress = 0.924556
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_fy8af")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_fy8af")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
