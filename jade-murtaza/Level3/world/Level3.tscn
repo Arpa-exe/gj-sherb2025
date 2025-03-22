@@ -1,9 +1,34 @@
-[gd_scene format=3 uid="uid://bekr8yia5ldkf"]
+[gd_scene load_steps=5 format=3 uid="uid://bekr8yia5ldkf"]
+
+[ext_resource type="Texture2D" uid="uid://8ysm6pbgtr1d" path="res://jade-murtaza/Level3/Assets/nature 1/1.png" id="1_vown8"]
+[ext_resource type="Texture2D" uid="uid://dk3nvcrdguoak" path="res://jade-murtaza/Level3/Assets/nature 1/2.png" id="2_obepv"]
+[ext_resource type="Texture2D" uid="uid://bf2hrjdgjmt3n" path="res://jade-murtaza/Level3/Assets/nature 1/3.png" id="3_kbt8p"]
+[ext_resource type="Texture2D" uid="uid://caake2teynto0" path="res://jade-murtaza/Level3/Assets/nature 1/4.png" id="4_r0dy6"]
 
 [node name="Level3" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_vown8")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_obepv")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("3_kbt8p")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("4_r0dy6")
