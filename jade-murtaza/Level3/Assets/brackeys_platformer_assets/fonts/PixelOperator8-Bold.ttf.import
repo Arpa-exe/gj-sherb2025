@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://na3tffvs80uv"
-path="res://.godot/imported/PixelOperator8-Bold.ttf-c64a3236bb577e58fc49f7d289dcb8b1.fontdata"
+path="res://.godot/imported/PixelOperator8-Bold.ttf-1b1e857b56710b3857231a40b82cdfb4.fontdata"
 
 [deps]
 
-source_file="res://jade-murtaza/Level2/Assetssss/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf"
-dest_files=["res://.godot/imported/PixelOperator8-Bold.ttf-c64a3236bb577e58fc49f7d289dcb8b1.fontdata"]
+source_file="res://jade-murtaza/Level3/Assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf"
+dest_files=["res://.godot/imported/PixelOperator8-Bold.ttf-1b1e857b56710b3857231a40b82cdfb4.fontdata"]
 
 [params]
 
