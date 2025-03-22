@@ -4,9 +4,9 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var nextLabel = $CanvasLayer/HBoxContainer/nextLabel
-@onready var crystalUI = $"../CanvasLayer/HBoxContainer/TextureRect"
-@onready var crystal2UI = $"../CanvasLayer/HBoxContainer/TextureRect2"
+@onready var nextLabel = $CanvasLayer/HBoxContainer/HBoxContainer/nextLabel
+@onready var crystalUI = $"../CanvasLayer/HBoxContainer/HBoxContainer/TextureRect"
+@onready var crystal2UI = $"../CanvasLayer/HBoxContainer/HBoxContainer/TextureRect2"
 
 var is_boing = false
 
@@ -86,7 +86,6 @@ func spawn_dash(direction):
 
 func removePowerFromUI():
 	pass
-
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	get_tree().change_scene_to_file("res://emma/gameOver.tscn")

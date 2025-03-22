@@ -26,10 +26,8 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "
-
-You died :)"
+size_flags_vertical = 10
+text = "You died :)"
 label_settings = ExtResource("2_x5jo0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
