@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cd8cvdtet3sfs"]
+
+[ext_resource type="Script" path="res://oli/scripts/collectible_generic.gd" id="1_328wv"]
+[ext_resource type="Texture2D" uid="uid://o8q3yhj213ag" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon26.png" id="1_unvcs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2skl"]
+atlas = ExtResource("1_unvcs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ii3t7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2skl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_umyax"]
+radius = 5.0
+height = 24.0
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_328wv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ii3t7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_umyax")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
