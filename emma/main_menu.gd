@@ -18,5 +18,5 @@ func _on_start_pressed() -> void:
 func _on_controlss_pressed() -> void:
 	get_tree().change_scene_to_file(Global.controlScene)
 
-func _on_quitt_pressed() -> void:
+func _on_quit_pressed() -> void:
 	get_tree().quit()
