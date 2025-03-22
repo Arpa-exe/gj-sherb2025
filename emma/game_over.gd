@@ -13,6 +13,12 @@ func _process(delta: float) -> void:
 
 func _on_restart_pressed() -> void:
 	Global.reset()
+	if Global.currentLevel == "Level1": 
+		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+	elif Global.currentLevel == "Level2": 
+		get_tree().change_scene_to_file("res://Scenes/level2.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/level3.tscn")
 	get_tree().change_scene_to_file("res://oli/game.tscn")
 
 

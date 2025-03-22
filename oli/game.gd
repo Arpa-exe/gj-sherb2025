@@ -8,6 +8,7 @@ extends Node2D
 var paused = false
 
 func _ready() -> void:
+	Global.currentLevel = "Level1"
 	pauseMenu.visible = false
 	if len(Global.powers) == 0:
 		nextLabel.text = str("No power picked up")
