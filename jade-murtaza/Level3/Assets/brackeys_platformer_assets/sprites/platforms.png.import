@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnfhhn750veuq"
-path="res://.godot/imported/platforms.png-342ef5007a8e73cdb700642ba970e366.ctex"
+path="res://.godot/imported/platforms.png-49e5cdad0644a973aa34047f38ec788c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://jade-murtaza/Level2/Assetssss/brackeys_platformer_assets/sprites/platforms.png"
-dest_files=["res://.godot/imported/platforms.png-342ef5007a8e73cdb700642ba970e366.ctex"]
+source_file="res://jade-murtaza/Level3/Assets/brackeys_platformer_assets/sprites/platforms.png"
+dest_files=["res://.godot/imported/platforms.png-49e5cdad0644a973aa34047f38ec788c.ctex"]
 
 [params]
 
