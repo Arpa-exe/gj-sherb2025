@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c45kowmddkis8"]
+[gd_scene load_steps=22 format=4 uid="uid://c45kowmddkis8"]
 
 [ext_resource type="Texture2D" uid="uid://csmy05qpr7ahr" path="res://jade-murtaza/Level1/Assets/lab_tileset_LITE/lab_tileset_LITE.png" id="1_6gple"]
 [ext_resource type="Script" path="res://jade-murtaza/Level1/level_1.gd" id="1_wiufj"]
@@ -9,8 +9,9 @@
 [ext_resource type="LabelSettings" path="res://emma/label.tres" id="5_sblom"]
 [ext_resource type="Texture2D" uid="uid://bedhtneeflcy4" path="res://Assets/emma/key.png" id="6_ha4g6"]
 [ext_resource type="PackedScene" uid="uid://b7265ofaplqs0" path="res://emma/spike.tscn" id="7_kn04i"]
-[ext_resource type="PackedScene" uid="uid://brgsgthx63sxn" path="res://emma/key.tscn" id="8_3m35k"]
+[ext_resource type="PackedScene" uid="uid://b2745shly4cb5" path="res://emma/key.tscn" id="8_3m35k"]
 [ext_resource type="PackedScene" uid="uid://cf8d1p7r33ebe" path="res://oli/Crystal.tscn" id="9_n7pc0"]
+[ext_resource type="PackedScene" uid="uid://dunairtcn761x" path="res://emma/enemy_fire_slime.tscn" id="12_7lmm5"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_id7cv"]
 tile_data = PackedInt32Array(0, 262146, 8, 65536, 262146, 9, 131072, 262146, 10, 196608, 262146, 11, 262144, 262146, 12, 327680, 262146, 9, 393216, 262146, 10, 458752, 262146, 11, 524288, 262146, 12, 1, 327682, 8, 65537, 327682, 9, 131073, 327682, 10, 196609, 327682, 11, 262145, 327682, 12, 327681, 327682, 9, 393217, 327682, 10, 458753, 327682, 11, 524289, 327682, 12, 2, 393218, 8, 65538, 393218, 9, 131074, 393218, 10, 196610, 393218, 10, 262146, 393218, 11, 327682, 393218, 10, 393218, 393218, 10, 458754, 393218, 11, 524290, 393218, 12, 3, 458754, 8, 65539, 458754, 9, 131075, 458754, 10, 196611, 458754, 10, 262147, 458754, 11, 327683, 458754, 10, 393219, 458754, 10, 458755, 458754, 11, 524291, 458754, 12, 4, 524290, 8, 65540, 524290, 9, 131076, 524290, 10, 196612, 524290, 10, 262148, 524290, 11, 327684, 524290, 10, 393220, 524290, 10, 458756, 524290, 11, 524292, 524290, 12, 5, 851970, 8, 65541, 851970, 9, 131077, 851970, 10, 196613, 851970, 11, 262149, 851970, 9, 327685, 851970, 10, 393221, 851970, 9, 458757, 851970, 10, 524293, 851970, 11)
@@ -458,6 +459,11 @@ pattern_4 = SubResource("TileMapPattern_thhf7")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7phb"]
 bg_color = Color(0.1066, 0.82, 0.13038, 1)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_o4awr"]
+vertices = PackedVector2Array(150.969, -37.8281, 257, 70.7266, -74.2813, 67.1094, -63.8125, -82.8516)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(156, -47, -73, -95, -85, 77, 281, 81)])
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_wiufj")
 
@@ -682,5 +688,20 @@ position = Vector2(722, 342)
 [node name="Crystal2" parent="." instance=ExtResource("9_n7pc0")]
 position = Vector2(275, 293)
 scale = Vector2(0.280184, 0.280184)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(807, 391)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(692, 392)
+
+[node name="enemyFireSlime" parent="." node_paths=PackedStringArray("markers") instance=ExtResource("12_7lmm5")]
+position = Vector2(798, 389)
+scale = Vector2(-1, 1)
+markers = [NodePath("../Marker2D"), NodePath("../Marker2D2")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(696, 359)
+navigation_polygon = SubResource("NavigationPolygon_o4awr")
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]

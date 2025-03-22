@@ -25,6 +25,7 @@ func selectNextMarker() -> Marker2D:
 		currentTargetIndex = 0
 
 	if nav.is_target_reached() or !nav.is_target_reachable():
+		scale.x *= -1
 		currentTargetIndex += 1
 		if currentTargetIndex >= len(markers):
 			currentTargetIndex = 0
@@ -38,10 +39,6 @@ func moveTowardsMarker(marker, delta):
 	
 	direction = nav.get_next_path_position() - enemyFire.global_position
 	direction = direction.normalized()
-	if direction.x > 0:
-		animationSprite.flip_h = true
-	else:
-		animationSprite.flip_h = false
 	
 	var speed = enemyFire.walkingSpeed
 	var tween = get_tree().create_tween()

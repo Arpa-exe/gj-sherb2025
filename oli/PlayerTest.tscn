@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bu2702fu62swp"]
+[gd_scene load_steps=29 format=3 uid="uid://bu2702fu62swp"]
 
 [ext_resource type="Texture2D" uid="uid://peoxbglwu53q" path="res://Assets/Hana Caraka - Base Character [sample]/idle.png" id="1_6jcjh"]
 [ext_resource type="Script" path="res://oli/scripts/player_test.gd" id="1_38qmw"]
@@ -169,7 +169,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvh0w"]
-radius = 6.0
+radius = 4.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgv83"]
+radius = 5.0
 height = 14.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csrdb"]
@@ -194,7 +198,7 @@ shape = SubResource("CapsuleShape2D_vvh0w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(-1, -1)
-shape = SubResource("CapsuleShape2D_vvh0w")
+shape = SubResource("CapsuleShape2D_lgv83")
 
 [node name="stompArea" type="Area2D" parent="."]
 

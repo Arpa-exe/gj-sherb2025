@@ -133,6 +133,7 @@ animations = [{
 }]
 
 [node name="enemyFireSlime" type="CharacterBody2D"]
+position = Vector2(-4, -5)
 script = ExtResource("1_or2av")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -149,6 +150,6 @@ frame_progress = 0.88644
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4, 5)
+position = Vector2(5, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xcv5c")
