@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://7utamst6wgy4"]
+[gd_scene load_steps=18 format=4 uid="uid://7utamst6wgy4"]
 
 [ext_resource type="Script" path="res://emma/game_test.gd" id="1_0vnid"]
 [ext_resource type="Texture2D" uid="uid://cgrm7vfgyiqn0" path="res://Assets/Kiings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_yka5a"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b7265ofaplqs0" path="res://emma/spike.tscn" id="10_rqfxn"]
 [ext_resource type="PackedScene" uid="uid://dpeoac884inoh" path="res://emma/mp_3.tscn" id="11_gis2u"]
 [ext_resource type="PackedScene" uid="uid://b2745shly4cb5" path="res://emma/key.tscn" id="12_1lsbx"]
+[ext_resource type="PackedScene" uid="uid://ianj88boanh6" path="res://emma/id.tscn" id="12_7bk3b"]
+[ext_resource type="PackedScene" uid="uid://dig7qb2786qi7" path="res://emma/enemy_fire_slime.tscn" id="14_kfl6s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kgtm"]
 texture = ExtResource("2_yka5a")
@@ -596,7 +598,7 @@ tile_set = SubResource("TileSet_y4em4")
 
 [node name="Crystal" parent="." instance=ExtResource("3_hws4l")]
 z_index = 6
-position = Vector2(-32, 7)
+position = Vector2(-133, 5)
 
 [node name="Killzone" parent="." instance=ExtResource("4_2p2s3")]
 position = Vector2(-36, 128)
@@ -721,8 +723,14 @@ scale = Vector2(0.25, 0.25)
 [node name="mp3" parent="." instance=ExtResource("11_gis2u")]
 position = Vector2(55, -42)
 
+[node name="id" parent="." instance=ExtResource("12_7bk3b")]
+position = Vector2(-80, 7)
+
 [node name="key" parent="." instance=ExtResource("12_1lsbx")]
-position = Vector2(-14, 4)
+position = Vector2(-108, 7)
+
+[node name="enemyFireSlime" parent="." instance=ExtResource("14_kfl6s")]
+position = Vector2(-50, -4)
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/pauseButton" to="." method="_on_pause_button_pressed"]

@@ -1,0 +1,147 @@
+[gd_scene load_steps=21 format=3 uid="uid://dig7qb2786qi7"]
+
+[ext_resource type="Script" path="res://emma/enemy_fire_slime.gd" id="1_or2av"]
+[ext_resource type="Texture2D" uid="uid://k0uc5vp1ve14" path="res://Assets/emma/messy.png" id="2_wt1ye"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xcv5c"]
+radius = 7.0
+height = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyubs"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(0, 0, 37, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y34nb"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(37, 0, 37, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsl8h"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(74, 0, 37, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l14c1"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(111, 0, 37, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q0dq"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(148, 0, 37, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ofgm"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(185, 0, 37, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4srg0"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(222, 0, 37, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pg6t"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(259, 0, 37, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4f22"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(0, 0, 37, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajuub"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(37, 0, 37, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm6sj"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(74, 0, 37, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db0y6"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(111, 0, 37, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14fe0"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(148, 0, 37, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwert"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(185, 0, 37, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1g14"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(222, 0, 37, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7clgg"]
+atlas = ExtResource("2_wt1ye")
+region = Rect2(259, 0, 37, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75w3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyubs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y34nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsl8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l14c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q0dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ofgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4srg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pg6t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4f22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajuub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm6sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db0y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14fe0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwert")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1g14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7clgg")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}]
+
+[node name="enemyFireSlime" type="CharacterBody2D"]
+script = ExtResource("1_or2av")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xcv5c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_75w3w")
+frame_progress = 0.804324
