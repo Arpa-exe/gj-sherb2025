@@ -7,6 +7,7 @@ var currentLevel
 var level1Scene = "res://emma/gameTest.tscn"
 var level2Scene = "res://emma/gameTest.tscn"
 var level3Scene = "res://emma/gameTest.tscn"
+var endScene = "res://emma/gameTest.tscn"
 
 var controlScene = "res://emma/controls.tscn"
 var mainMenuScene = "res://emma/main_menu.tscn"
