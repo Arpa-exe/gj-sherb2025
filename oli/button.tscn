@@ -47,5 +47,12 @@ position = Vector2(-1.52588e-06, -1.6)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6tjkj")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+offset_left = -83.2
+offset_right = -43.2
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
