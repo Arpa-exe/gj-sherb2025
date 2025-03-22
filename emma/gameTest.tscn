@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ch80i4ygjkrcm"]
+[gd_scene load_steps=14 format=4 uid="uid://ch80i4ygjkrcm"]
 
 [ext_resource type="Script" path="res://emma/game_test.gd" id="1_0vnid"]
 [ext_resource type="Texture2D" uid="uid://cgrm7vfgyiqn0" path="res://Assets/Kiings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_yka5a"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="7_oqghe"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="8_i2d0b"]
 [ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="9_0f2xy"]
+[ext_resource type="PackedScene" uid="uid://q0iek7qg4fsf" path="res://emma/spike.tscn" id="10_rqfxn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kgtm"]
 texture = ExtResource("2_yka5a")
@@ -710,6 +711,10 @@ text = "Main Menu"
 [node name="quit" type="Button" parent="pauseMenu/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Quit :("
+
+[node name="spike" parent="." instance=ExtResource("10_rqfxn")]
+position = Vector2(82, -38)
+scale = Vector2(0.25, 0.25)
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/pauseButton" to="." method="_on_pause_button_pressed"]
