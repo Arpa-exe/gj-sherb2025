@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://lvwi4jc51yw3"
-path="res://.godot/imported/explosion.wav-113a7474e6e3e3589d60d3572de730ee.sample"
+path="res://.godot/imported/explosion.wav-38f816c67a85323521c1b2215528ce86.sample"
 
 [deps]
 
-source_file="res://jade-murtaza/Level2/Assetssss/brackeys_platformer_assets/sounds/explosion.wav"
-dest_files=["res://.godot/imported/explosion.wav-113a7474e6e3e3589d60d3572de730ee.sample"]
+source_file="res://jade-murtaza/Level3/Assets/brackeys_platformer_assets/sounds/explosion.wav"
+dest_files=["res://.godot/imported/explosion.wav-38f816c67a85323521c1b2215528ce86.sample"]
 
 [params]
 
