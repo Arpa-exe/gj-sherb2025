@@ -168,12 +168,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fy8af"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvh0w"]
+radius = 6.0
+height = 14.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csrdb"]
 radius = 0.5
-height = 10.0
+height = 5.99999
 
 [node name="PlayerTest" type="CharacterBody2D"]
 collision_layer = 2
@@ -186,14 +187,14 @@ autoplay = "IdleRight"
 frame_progress = 0.504879
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 2)
-shape = SubResource("CircleShape2D_fy8af")
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_vvh0w")
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-1, 2)
-shape = SubResource("CircleShape2D_fy8af")
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_vvh0w")
 
 [node name="stompArea" type="Area2D" parent="."]
 

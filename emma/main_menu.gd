@@ -10,7 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_start_pressed() -> void:
 	Global.reset()
 	get_tree().change_scene_to_file(Global.level1Scene)
@@ -18,5 +17,5 @@ func _on_start_pressed() -> void:
 func _on_controlss_pressed() -> void:
 	get_tree().change_scene_to_file(Global.controlScene)
 
-func _on_quit_pressed() -> void:
+func _on_quitt_pressed() -> void:
 	get_tree().quit()
