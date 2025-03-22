@@ -3,15 +3,16 @@ extends Node2D
 var currentTarget = null
 var currentTargetIndex = null
 
-@onready var nav: NavigationAgent2D = $"../../NavigationAgent3D"
-@onready var guardArea: Area2D = $"../../Area2D"
-@onready var prisonGuard: CharacterBody3D = $"../.."
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
+@onready var enemyFire: CharacterBody2D = $"."
+@onready var animationSprite = $AnimatedSprite2D
 
-@export var patrolMarkers: Array[Marker2D] = []
+@export var markers: Array[Marker2D] = []
+@export var walkingSpeed = 75.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	animationSprite.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,6 +25,7 @@ func selectNextMarker() -> Marker2D:
 		currentTargetIndex = 0
 
 	if nav.is_target_reached() or !nav.is_target_reachable():
+		print("hello")
 		currentTargetIndex += 1
 		if currentTargetIndex >= len(markers):
 			currentTargetIndex = 0
@@ -31,13 +33,17 @@ func selectNextMarker() -> Marker2D:
 	return markers[currentTargetIndex]
 
 func moveTowardsMarker(marker, delta):
-	var direction := Vector3()
+	var direction := Vector2()
 	
 	nav.target_position = marker.global_position
 	
-	direction = nav.get_next_path_position() - prisonGuard.global_position
+	direction = nav.get_next_path_position() - enemyFire.global_position
 	direction = direction.normalized()
+	if direction.x > 0:
+		animationSprite.flip_h = true
+	else:
+		animationSprite.flip_h = false
 	
-	var speed = prisonGuard.walkingSpeed
-	prisonGuard.velocity = prisonGuard.velocity.lerp(direction * speed, delta)
-	prisonGuard.move_and_slide()
+	var speed = enemyFire.walkingSpeed
+	enemyFire.velocity = enemyFire.velocity.lerp(direction * speed, delta)
+	enemyFire.move_and_slide()

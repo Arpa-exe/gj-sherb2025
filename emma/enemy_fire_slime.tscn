@@ -142,6 +142,6 @@ shape = SubResource("CapsuleShape2D_xcv5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_75w3w")
-frame_progress = 0.289829
+frame_progress = 0.88644
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

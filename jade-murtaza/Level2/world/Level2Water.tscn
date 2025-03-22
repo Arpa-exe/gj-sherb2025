@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cfmxw1wl807us"]
+[gd_scene load_steps=13 format=4 uid="uid://cfmxw1wl807us"]
 
 [ext_resource type="Texture2D" uid="uid://dm62l2s621321" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/1.png" id="1_crenr"]
 [ext_resource type="Texture2D" uid="uid://dagfbg77u86gq" path="res://jade-murtaza/Level2/Assetssss/brackeys_platformer_assets/sprites/world_tileset.png" id="1_fonym"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bu2702fu62swp" path="res://oli/PlayerTest.tscn" id="6_vflnf"]
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="7_siobd"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="8_gmb50"]
+[ext_resource type="PackedScene" uid="uid://dig7qb2786qi7" path="res://emma/enemy_fire_slime.tscn" id="9_8vq8e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0l5"]
 texture = ExtResource("1_fonym")
@@ -218,6 +219,11 @@ texture = ExtResource("1_fonym")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gs0l5")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gv3d6"]
+vertices = PackedVector2Array(-43.5781, 115.789, -189.992, 125.258, -180.844, 23.8594, -66.7891, 22.1172)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-201, 136, -31, 125, -59, 12, -190, 14)])
+
 [node name="Level2Water" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -303,3 +309,18 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 text = "pause"
+
+[node name="enemyFireSlime" parent="." node_paths=PackedStringArray("markers") instance=ExtResource("9_8vq8e")]
+position = Vector2(-146, 53)
+markers = [NodePath("../markers/Marker2D"), NodePath("../markers/Marker2D2")]
+
+[node name="markers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="markers"]
+position = Vector2(-168, 57)
+
+[node name="Marker2D2" type="Marker2D" parent="markers"]
+position = Vector2(-119, 58)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_gv3d6")
