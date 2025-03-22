@@ -17,7 +17,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(Global.powers)
 	if Input.is_action_just_pressed("pause"):
 		if paused == false:
 			paused = true
@@ -58,7 +57,7 @@ func _on_continue_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://emma/main_menu.tscn")
+	get_tree().change_scene_to_file(Global.mainMenuScene)
 
 
 func _on_quit_pressed() -> void:

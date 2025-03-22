@@ -21,7 +21,6 @@ func catch_crystal():
 	missingCrystalUI.visible = false
 	
 func catch_dash_crystal():
-	print("bing")
 	Global.powers.push_back("bing")
 	Global.powersLeft.erase("bing")
 	missingCrystal2UI.visible = false
@@ -106,10 +105,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	print("player hitbox ", area.get_parent().get_parent().name)
 	print("area: ", area)
 	if (area.get_parent().get_parent().name == "Sign"):
-		if Global.currentLevel == "Level2": # changed level 1 to 2 
-			get_tree().change_scene_to_file("res://Scenes/level3.tscn") # changed level 2 to 1
-		elif Global.currentLevel == "Level1": # changed level 2 to 1
-			get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+		if Global.currentLevel == "Level1": # changed level 1 to 2 
+			get_tree().change_scene_to_file(Global.level2Scene) # changed level 2 to 1
+		elif Global.currentLevel == "Level2": # changed level 2 to 1
+			get_tree().change_scene_to_file(Global.level3Scene)
 		elif Global.currentLevel == "Level3":
-			get_tree().change_scene_to_file("res://Scenes/endscene.tscn")
+			get_tree().change_scene_to_file(Global.endScene)
 	pass # Replace with function body.
