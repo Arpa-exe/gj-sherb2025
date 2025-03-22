@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cnv88jlfwf0et"]
+[gd_scene load_steps=14 format=4 uid="uid://cnv88jlfwf0et"]
 
 [ext_resource type="Script" path="res://oli/game.gd" id="1_1rl3k"]
 [ext_resource type="PackedScene" uid="uid://bu2702fu62swp" path="res://oli/PlayerTest.tscn" id="1_xnxbj"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dvy2d7ce4pr8l" path="res://oli/killzone.tscn" id="3_se2dm"]
 [ext_resource type="PackedScene" uid="uid://dobhgepw1f4qi" path="res://oli/DashCrystal.tscn" id="5_oq028"]
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="6_4nj7s"]
+[ext_resource type="PackedScene" uid="uid://t6xdne5l36hq" path="res://oli/button.tscn" id="6_4ttg6"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="7_oyf6y"]
-[ext_resource type="PackedScene" uid="uid://c202gb4di6b80" path="res://emma/pause_menu.tscn" id="9_1iprn"]
+[ext_resource type="LabelSettings" path="res://emma/label.tres" id="9_k0hje"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kgtm"]
 texture = ExtResource("3_i7odx")
@@ -616,6 +617,9 @@ position_smoothing_enabled = true
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="PlayerTest"]
 position = Vector2(-13, 1)
 
+[node name="Button" parent="." instance=ExtResource("6_4ttg6")]
+position = Vector2(73, -40)
+
 [node name="Crystal2" parent="." instance=ExtResource("5_oq028")]
 position = Vector2(40, 7)
 
@@ -667,7 +671,52 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "pause"
 
-[node name="pauseMenu" parent="." instance=ExtResource("9_1iprn")]
+[node name="pauseMenu" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="pauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseMenu/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="pauseMenu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Paused"
+label_settings = ExtResource("9_k0hje")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pauseMenu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="continue" type="Button" parent="pauseMenu/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="mainMenu" type="Button" parent="pauseMenu/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="quit" type="Button" parent="pauseMenu/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit :("
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/pauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
