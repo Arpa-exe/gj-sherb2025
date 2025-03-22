@@ -175,6 +175,27 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 70
 text = "Beyond the Wall"
 
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -672.5
+offset_top = -205.0
+offset_right = 681.5
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Experimented on and trapped since birth, 
+he escapes the underground lab. From 
+cold steel to wild forests and open seas, 
+he fights for freedom while facing
+ unknown creatures"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Control/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/controlss" to="." method="_on_controlss_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/quitt" to="." method="_on_quitt_pressed"]
