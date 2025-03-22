@@ -4,6 +4,7 @@ var powers = []
 var collectibleLeft = []
 var collectibleCount = 0
 var currentLevel
+var currentHealth
 
 var level1Scene = "res://jade-murtaza/Level1/World/Level1.tscn"
 var level2Scene = "res://jade-murtaza/Level3/world/Level3.tscn"
