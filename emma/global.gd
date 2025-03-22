@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 
 func reset():
 	powers = []
-	powersLeft = []
+	powersLeft = ["bing", "boing"]

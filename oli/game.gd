@@ -15,6 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(Global.powers)
 	if Input.is_action_just_pressed("pause"):
 		if paused == false:
 			paused = true
@@ -32,16 +33,22 @@ func _process(delta: float) -> void:
 		for power in Global.powers:
 			if power == "bing":
 				var currentItem = crystal2UI
-				var currentIndex = crystal2UI.get_index()
-				moveChild(currentItem, currentIndex)
+				var currentNodeIndex = crystal2UI.get_index()
+				var currentArrayIndex = Global.powers.find("bing")
+				print(currentArrayIndex)
+				moveChild(currentItem, currentNodeIndex, currentArrayIndex)
 			elif  power == "boing":
 				var currentItem = crystalUI
-				var currentIndex = crystalUI.get_index()
-				moveChild(currentItem, currentIndex)
+				var currentNodeIndex = crystalUI.get_index()
+				var currentArrayIndex = Global.powers.find("boing")
+				moveChild(currentItem, currentNodeIndex, currentArrayIndex)
 
-func moveChild(currentItem, currentIndex):
-	move_child(currentItem, currentIndex + 1)
+func moveChild(currentItem, currentNodeIndex, currentArrayIndex):
+	currentArrayIndex = currentArrayIndex + 1
+	move_child(currentItem, currentArrayIndex)
+	currentNodeIndex = currentItem.get_index()
 	currentItem.visible = true
+	print(currentNodeIndex, currentArrayIndex)
 	pass
 
 

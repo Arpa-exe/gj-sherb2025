@@ -21,6 +21,7 @@ func catch_crystal():
 	missingCrystalUI.visible = false
 	
 func catch_dash_crystal():
+	print("bing")
 	Global.powers.push_back("bing")
 	Global.powersLeft.erase("bing")
 	missingCrystal2UI.visible = false
@@ -28,6 +29,8 @@ func catch_dash_crystal():
 func _physics_process(delta: float) -> void:
 	if len(Global.powersLeft) == 0:
 		missingLabel.visible = false
+	else:
+		missingLabel.visible = true
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
