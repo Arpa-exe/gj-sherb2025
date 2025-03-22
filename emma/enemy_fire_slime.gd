@@ -8,7 +8,7 @@ var currentTargetIndex = null
 @onready var animationSprite = $AnimatedSprite2D
 
 @export var markers: Array[Marker2D] = []
-@export var walkingSpeed = 75.0
+@export var walkingSpeed = 30.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,5 +45,6 @@ func moveTowardsMarker(marker, delta):
 		animationSprite.flip_h = false
 	
 	var speed = enemyFire.walkingSpeed
-	enemyFire.velocity = enemyFire.velocity.lerp(direction * speed, delta)
+	var tween = get_tree().create_tween()
+	enemyFire.velocity = enemyFire.velocity.lerp(direction * speed, 1)
 	enemyFire.move_and_slide()
