@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ch80i4ygjkrcm"]
+[gd_scene load_steps=14 format=4 uid="uid://7utamst6wgy4"]
 
 [ext_resource type="Script" path="res://emma/game_test.gd" id="1_0vnid"]
 [ext_resource type="Texture2D" uid="uid://cgrm7vfgyiqn0" path="res://Assets/Kiings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_yka5a"]
@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dobhgepw1f4qi" path="res://oli/DashCrystal.tscn" id="6_i4ixw"]
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="7_oqghe"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="8_i2d0b"]
-[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="9_0f2xy"]
-[ext_resource type="PackedScene" uid="uid://q0iek7qg4fsf" path="res://emma/spike.tscn" id="10_rqfxn"]
+[ext_resource type="LabelSettings" path="res://emma/label.tres" id="9_0f2xy"]
+[ext_resource type="PackedScene" uid="uid://b7265ofaplqs0" path="res://emma/spike.tscn" id="10_rqfxn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kgtm"]
 texture = ExtResource("2_yka5a")

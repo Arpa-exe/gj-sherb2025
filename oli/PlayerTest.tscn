@@ -191,4 +191,5 @@ shape = SubResource("CircleShape2D_fy8af")
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_fy8af")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
