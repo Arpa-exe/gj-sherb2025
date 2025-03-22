@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvy2d7ce4pr8l" path="res://oli/killzone.tscn" id="3_se2dm"]
 [ext_resource type="PackedScene" uid="uid://dobhgepw1f4qi" path="res://oli/DashCrystal.tscn" id="5_oq028"]
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="6_4nj7s"]
-[ext_resource type="PackedScene" path="res://oli/button.tscn" id="6_4ttg6"]
+[ext_resource type="PackedScene" uid="uid://t6xdne5l36hq" path="res://oli/button.tscn" id="6_4ttg6"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="7_oyf6y"]
 [ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="9_k0hje"]
 [ext_resource type="PackedScene" uid="uid://cd8cvdtet3sfs" path="res://oli/CollectibleGeneric.tscn" id="11_34ntr"]
