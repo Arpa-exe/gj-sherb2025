@@ -116,4 +116,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 func die():
-	get_tree().change_scene_to_file(Global.gameOverScene)
+	animated_sprite_2d.play("die")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.get_current_animation == "die":
+		get_tree().change_scene_to_file(Global.gameOverScene)
