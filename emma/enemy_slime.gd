@@ -4,21 +4,24 @@ var currentTarget = null
 var currentTargetIndex = null
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
-@onready var enemyFire: CharacterBody2D = $"."
-@onready var animationSprite = $AnimatedSprite2D
+@onready var enemySlime: CharacterBody2D = $"."
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 @export var markers: Array[Marker2D] = []
 @export var walkingSpeed = 30.0
 
+var alive = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animationSprite.play("roll")
+	animated_sprite_2d.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var nextMarker = selectNextMarker()
-	moveTowardsMarker(nextMarker, delta)
+	if alive == true:
+		var nextMarker = selectNextMarker()
+		moveTowardsMarker(nextMarker, delta)
 
 func selectNextMarker() -> Marker2D:
 	if currentTargetIndex == null:
@@ -36,14 +39,23 @@ func moveTowardsMarker(marker, delta):
 	
 	nav.target_position = marker.global_position
 	
-	direction = nav.get_next_path_position() - enemyFire.global_position
+	direction = nav.get_next_path_position() - enemySlime.global_position
 	direction = direction.normalized()
 	if direction.x > 0:
-		animationSprite.flip_h = true
+		animated_sprite_2d.flip_h = true
 	else:
-		animationSprite.flip_h = false
+		animated_sprite_2d.flip_h = false
 	
-	var speed = enemyFire.walkingSpeed
+	var speed = enemySlime.walkingSpeed
 	var tween = get_tree().create_tween()
-	enemyFire.velocity = enemyFire.velocity.lerp(direction * speed, 1)
-	enemyFire.move_and_slide()
+	enemySlime.velocity = enemySlime.velocity.lerp(direction * speed, 1)
+	enemySlime.move_and_slide()
+
+func die():
+	alive = false
+	animated_sprite_2d.animation = "die"
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.get_animation() == "die":
+		queue_free()

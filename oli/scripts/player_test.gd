@@ -123,3 +123,9 @@ func die():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.get_animation() == "die":
 		get_tree().change_scene_to_file(Global.gameOverScene)
+
+
+func _on_stomp_area_area_entered(area: Area2D) -> void:
+	print("areaaa: ", area.get_parent().name)
+	if (area.get_parent().name == "enemySlime"):
+		area.get_parent().die()

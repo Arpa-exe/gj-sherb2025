@@ -1,5 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://dxc04o1glatr5"]
+[gd_scene load_steps=45 format=3 uid="uid://dxc04o1glatr5"]
 
+[ext_resource type="Script" path="res://emma/enemy_slime.gd" id="1_fsaf5"]
 [ext_resource type="Texture2D" uid="uid://c4vm1luau8dkq" path="res://Assets/emma/slime spritesheet calciumtrice.png" id="1_pafi0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1o5p3"]
@@ -230,7 +231,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_01r10")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 10.0
 }, {
@@ -307,6 +308,7 @@ radius = 1.0
 height = 10.0
 
 [node name="enemySlime" type="CharacterBody2D"]
+script = ExtResource("1_fsaf5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -314,9 +316,9 @@ shape = SubResource("CapsuleShape2D_1o5p3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m5rs7")
-animation = &"roll"
-frame = 6
-frame_progress = 0.304885
+animation = &"die"
+frame = 9
+frame_progress = 1.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -326,3 +328,5 @@ frame_progress = 0.304885
 position = Vector2(0, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fj8np")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

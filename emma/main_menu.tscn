@@ -1,14 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhlbr8ag1844b"]
+[gd_scene load_steps=6 format=3 uid="uid://bq7q1mjaqfv7x"]
 
 [ext_resource type="Script" path="res://emma/main_menu.gd" id="1_e5dkl"]
-[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="1_lajf8"]
+[ext_resource type="LabelSettings" path="res://emma/label.tres" id="1_lajf8"]
+[ext_resource type="Texture2D" uid="uid://cvnjknaq4alv6" path="res://Assets/lab1.jpeg" id="3_bec0v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nh28"]
+texture = ExtResource("3_bec0v")
+modulate_color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nons3"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
 
 [node name="mainMenu" type="Node2D"]
 script = ExtResource("1_e5dkl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Beyond the Wall"
+label_settings = ExtResource("1_lajf8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="start" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Start game!"
+
+[node name="quit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit game :("
+
+[node name="controls" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Controls"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,38 +63,85 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.734833, 1, 0.63, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 650.0
+
+[node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6nh28")
 
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -67.0
+offset_right = 81.5
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
-text = "GAME NAME"
-label_settings = ExtResource("1_lajf8")
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nons3")
+text = "Start Game"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer"]
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
-
-[node name="start" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Start game!"
-
-[node name="quit" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Quit game :("
-
-[node name="controls" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nons3")
 text = "Controls"
 
-[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/controls" to="." method="_on_controls_pressed"]
+[node name="Button3" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nons3")
+text = "Quit"
+
+[node name="title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -175.0
+offset_right = 64.5
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+text = "Beyond the Wall"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/controls" to="." method="_on_controls_pressed"]

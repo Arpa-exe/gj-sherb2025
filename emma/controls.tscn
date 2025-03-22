@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://feqqut4vskwa"]
+[gd_scene load_steps=4 format=3 uid="uid://dxv73jaxqe3mp"]
 
 [ext_resource type="Texture2D" uid="uid://c2ry1l2gkmg0" path="res://Assets/WASD.webp" id="1_1hoyg"]
 [ext_resource type="Texture2D" uid="uid://cqnhmq33t2g8r" path="res://Assets/key_q_upper_case.svg" id="2_x703p"]
