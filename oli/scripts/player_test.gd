@@ -6,12 +6,14 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var nextLabel = $CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/nextLabel
-@onready var collectibleUI = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect"
-@onready var collectibleUI2 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect2"
+@onready var missing1 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect"
+@onready var missing2 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect2"
 
 @onready var missingLabel = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/Label"
-@onready var missingCrystalUI = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/TextureRect"
-@onready var missingCrystal2UI = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/TextureRect2"
+@onready var collectiblenode = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"
+@onready var collectibleUI = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/TextureRect"
+@onready var collectibleUI2 = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/TextureRect2"
+@onready var collectibleUI3 = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/TextureRect3"
 
 @onready var progressBar = $"../CanvasLayer/VBoxContainer/ProgressBar"
 @onready var progressBarLabel = $"../CanvasLayer/VBoxContainer/ProgressBar/Label"
@@ -21,17 +23,20 @@ var alive = true
 var damage = true
 var cooldown = 2 # 2 seconds before being able to be hit again
 var timer_cooldown = 0
+var collectibles
 
 func _ready() -> void:
 	Global.currentHealth = 4
+	progressBarLabel.text = str("Health: ", Global.currentHealth, "/4")
+	collectibles = [collectibleUI, collectibleUI2, collectibleUI3]
 
 func catch_crystal():
 	Global.powers.push_back("boing")
-	missingCrystalUI.visible = false
+	missing1.visible = false
 	
 func catch_dash_crystal():
 	Global.powers.push_back("bing")
-	missingCrystal2UI.visible = false
+	missing2.visible = false
 
 func _physics_process(delta: float) -> void:
 	if timer_cooldown > 0:
@@ -40,6 +45,7 @@ func _physics_process(delta: float) -> void:
 			damage = true
 	if alive:
 		if len(Global.collectibleLeft) == 0:
+			pass
 			missingLabel.visible = false
 		else:
 			missingLabel.visible = true
@@ -61,7 +67,6 @@ func _physics_process(delta: float) -> void:
 					tween.tween_property(self, "global_position:y", global_position.y - 48, 0.1)
 					velocity.y = JUMP_VELOCITY
 					is_boing = false
-					collectibleUI.visible = false
 				"bing":
 					var direction := Input.get_axis("move_left", "move_right")
 					if direction == 0:
@@ -72,7 +77,6 @@ func _physics_process(delta: float) -> void:
 						var tween = create_tween()
 						tween.tween_property(self, "global_position:x", global_position.x + 80 * direction, 0.2)
 						is_boing = false
-						collectibleUI2.visible = false
 				_:
 					pass
 			
@@ -112,10 +116,15 @@ func spawn_dash(direction):
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	die()
 
-
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	print("player hitbox ", area.get_parent().get_parent().get_parent())
+	print("player hitbox ", area.get_parent())
 	print("area: ", area)
+	if Global.currentLevel == "1":
+		if area.get_parent().name == "Keys":
+			print('collectibleCount: ', Global.collectibleCount)
+			var count = Global.collectibleCount
+			collectibles[count].visible = false
+
 	if (area.get_parent().get_parent().name == "Sign"):
 		if Global.currentLevel == "1": # changed level 1 to 2 
 			get_tree().change_scene_to_file(Global.level2Scene) # changed level 2 to 1
@@ -123,6 +132,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			get_tree().change_scene_to_file(Global.level3Scene)
 		elif Global.currentLevel == "3":
 			get_tree().change_scene_to_file(Global.endScene)
+
+	elif (area.get_parent().name == "enemyFireSlime"):
+		takeHit(2)
+	elif (area.get_parent().name == "enemySlime"):
+		takeHit(1)
 	elif area.get_parent().get_parent().get_parent() != null:
 		if area.get_parent().get_parent().get_parent().name == "Spikes":
 			takeHit(1)
@@ -132,15 +146,15 @@ func die():
 	alive = false
 	animated_sprite_2d.play("die")
 
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.get_animation() == "die":
 		get_tree().change_scene_to_file(Global.gameOverScene)
 
-
 func _on_stomp_area_area_entered(area: Area2D) -> void:
 	if (area.get_parent().name == "enemySlime"):
 		area.get_parent().die()
+	elif (area.get_parent().name == "enemyFireSlime"):
+		takeHit(2)
 
 func takeHit(damageLevel):
 	if damage: 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c45kowmddkis8"]
+[gd_scene load_steps=20 format=4 uid="uid://c45kowmddkis8"]
 
 [ext_resource type="Texture2D" uid="uid://csmy05qpr7ahr" path="res://jade-murtaza/Level1/Assets/lab_tileset_LITE/lab_tileset_LITE.png" id="1_6gple"]
 [ext_resource type="Script" path="res://jade-murtaza/Level1/level_1.gd" id="1_wiufj"]
@@ -6,10 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="3_awde4"]
 [ext_resource type="PackedScene" path="res://oli/DashCrystal.tscn" id="3_s45ui"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="4_2kqun"]
+<<<<<<< HEAD
 [ext_resource type="LabelSettings" path="res://emma/label.tres" id="5_sblom"]
 [ext_resource type="PackedScene" path="res://emma/spike.tscn" id="7_kn04i"]
 [ext_resource type="PackedScene" path="res://emma/key.tscn" id="8_3m35k"]
 [ext_resource type="PackedScene" path="res://oli/Crystal.tscn" id="9_n7pc0"]
+=======
+[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="5_sblom"]
+[ext_resource type="Texture2D" uid="uid://bedhtneeflcy4" path="res://Assets/emma/key.png" id="6_ha4g6"]
+[ext_resource type="PackedScene" uid="uid://b7265ofaplqs0" path="res://emma/spike.tscn" id="7_kn04i"]
+[ext_resource type="PackedScene" uid="uid://b2745shly4cb5" path="res://emma/key.tscn" id="8_3m35k"]
+[ext_resource type="PackedScene" uid="uid://cf8d1p7r33ebe" path="res://oli/Crystal.tscn" id="9_n7pc0"]
+>>>>>>> 6a4d4e03c3bf73348b181112623b140ad63d7052
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_id7cv"]
 tile_data = PackedInt32Array(0, 262146, 8, 65536, 262146, 9, 131072, 262146, 10, 196608, 262146, 11, 262144, 262146, 12, 327680, 262146, 9, 393216, 262146, 10, 458752, 262146, 11, 524288, 262146, 12, 1, 327682, 8, 65537, 327682, 9, 131073, 327682, 10, 196609, 327682, 11, 262145, 327682, 12, 327681, 327682, 9, 393217, 327682, 10, 458753, 327682, 11, 524289, 327682, 12, 2, 393218, 8, 65538, 393218, 9, 131074, 393218, 10, 196610, 393218, 10, 262146, 393218, 11, 327682, 393218, 10, 393218, 393218, 10, 458754, 393218, 11, 524290, 393218, 12, 3, 458754, 8, 65539, 458754, 9, 131075, 458754, 10, 196611, 458754, 10, 262147, 458754, 11, 327683, 458754, 10, 393219, 458754, 10, 458755, 458754, 11, 524291, 458754, 12, 4, 524290, 8, 65540, 524290, 9, 131076, 524290, 10, 196612, 524290, 10, 262148, 524290, 11, 327684, 524290, 10, 393220, 524290, 10, 458756, 524290, 11, 524292, 524290, 12, 5, 851970, 8, 65541, 851970, 9, 131077, 851970, 10, 196613, 851970, 11, 262149, 851970, 9, 327685, 851970, 10, 393221, 851970, 9, 458757, 851970, 10, 524293, 851970, 11)
@@ -481,13 +489,16 @@ position = Vector2(-13, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 61.0
+grow_horizontal = 2
+size_flags_horizontal = 3
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 25)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_h7phb")
 max_value = 4.0
@@ -519,6 +530,7 @@ layout_mode = 2
 size_flags_horizontal = 2
 
 [node name="nextLabel" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Next power: "
 
@@ -537,15 +549,22 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"]
 layout_mode = 2
-text = "Powers left to pick up: "
+text = "Collectible left to pick up: "
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"]
 layout_mode = 2
-texture = ExtResource("3_awde4")
+texture = ExtResource("6_ha4g6")
+expand_mode = 3
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"]
 layout_mode = 2
-texture = ExtResource("4_2kqun")
+texture = ExtResource("6_ha4g6")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/missingContainer"]
+layout_mode = 2
+texture = ExtResource("6_ha4g6")
+expand_mode = 3
 
 [node name="pauseButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 visible = false
@@ -656,7 +675,7 @@ position = Vector2(737, 324)
 rotation = -3.14011
 scale = Vector2(0.11999, 0.11999)
 
-[node name="Keys" type="Node" parent="."]
+[node name="Keys" type="Node2D" parent="."]
 
 [node name="key2" parent="Keys" instance=ExtResource("8_3m35k")]
 position = Vector2(456, 331)

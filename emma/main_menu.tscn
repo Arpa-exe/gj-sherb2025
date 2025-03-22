@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bq7q1mjaqfv7x"]
 
 [ext_resource type="Script" path="res://emma/main_menu.gd" id="1_e5dkl"]
-[ext_resource type="LabelSettings" path="res://emma/label.tres" id="1_lajf8"]
+[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="1_lajf8"]
 [ext_resource type="Texture2D" uid="uid://cvnjknaq4alv6" path="res://Assets/lab1.jpeg" id="3_bec0v"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nh28"]
@@ -174,6 +174,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 70
 text = "Beyond the Wall"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -672.5
+offset_top = -205.0
+offset_right = 681.5
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Experimented on and trapped since birth, 
+he escapes the underground lab. From 
+cold steel to wild forests and open seas, 
+he fights for freedom while facing
+ unknown creatures"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Control/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/controlss" to="." method="_on_controlss_pressed"]

@@ -12,7 +12,7 @@ var currentTargetIndex = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animationSprite.play("roll")
+	animationSprite.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

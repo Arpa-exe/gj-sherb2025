@@ -28,8 +28,8 @@ func reset():
 	powers = []
 	if currentLevel != null:
 		if currentLevel == "1":
-			collectibleLeft = ["id"]
+			collectibleLeft = ["key", "key", "key"]
 		elif currentLevel == "2":
-			collectibleLeft = ["key"]
+			collectibleLeft = ["card"]
 		elif currentLevel == "3":
 			collectibleLeft = ["mp3"]

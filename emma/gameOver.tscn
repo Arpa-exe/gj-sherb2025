@@ -1,52 +1,142 @@
-[gd_scene load_steps=3 format=3 uid="uid://ilf1xr08o6d5"]
+[gd_scene load_steps=9 format=3 uid="uid://ilf1xr08o6d5"]
 
 [ext_resource type="Script" path="res://emma/game_over.gd" id="1_4ldxi"]
-[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="2_x5jo0"]
+[ext_resource type="Texture2D" uid="uid://4td3ky4qfuve" path="res://Assets/died.jpg" id="2_qpmfg"]
+[ext_resource type="LabelSettings" path="res://emma/label.tres" id="2_x5jo0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eg8uw"]
+texture = ExtResource("2_qpmfg")
+modulate_color = Color(0.619608, 0.619608, 0.619608, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfvtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhcro"]
+bg_color = Color(0.691357, 0.691357, 0.691357, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj1y3"]
+bg_color = Color(0.540987, 0.540992, 0.540987, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpc4x"]
+bg_color = Color(0.986752, 0.986752, 0.986752, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 11
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_4ldxi")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 1119.0
+offset_bottom = 615.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.77, 0.385, 0.385, 1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_eg8uw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = 358.0
+offset_top = 469.0
+offset_right = 742.0
+offset_bottom = 504.0
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-text = "You died :)"
-label_settings = ExtResource("2_x5jo0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_constants/separation = 15
 
-[node name="Restart" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="Restart" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
-text = "Restart"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hfvtn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hhcro")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gj1y3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpc4x")
+text = "  Restart  "
 
-[node name="mainMenu" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="mainMenu" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
-text = "Main Menu"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hfvtn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hhcro")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gj1y3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpc4x")
+text = "  Main Menu  "
 
-[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="Quit" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
-text = "Quit"
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hfvtn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hhcro")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gj1y3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpc4x")
+text = "  Quit  "
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.9999
+offset_top = 19.0
+offset_right = 1355.0
+offset_bottom = 313.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 5
+text = "You were so close... 
+but the path to freedom is never easy.
+Try again!"
+label_settings = ExtResource("2_x5jo0")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Control/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cfmxw1wl807us"]
+[gd_scene load_steps=16 format=4 uid="uid://cfmxw1wl807us"]
 
 [ext_resource type="Texture2D" uid="uid://dm62l2s621321" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/1.png" id="1_crenr"]
 [ext_resource type="Texture2D" uid="uid://dagfbg77u86gq" path="res://jade-murtaza/Level3/Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_fonym"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cf8d1p7r33ebe" path="res://oli/Crystal.tscn" id="10_dgve0"]
 [ext_resource type="PackedScene" uid="uid://dxc04o1glatr5" path="res://emma/enemy_slime.tscn" id="10_k1ec0"]
 [ext_resource type="PackedScene" uid="uid://dpeoac884inoh" path="res://emma/mp_3.tscn" id="10_rjl2g"]
-[ext_resource type="PackedScene" uid="uid://b7265ofaplqs0" path="res://emma/spike.tscn" id="12_kmja1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0l5"]
 texture = ExtResource("1_fonym")
@@ -381,8 +380,5 @@ position = Vector2(831, 109)
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="Spikes" type="Node2D" parent="."]
-
-[node name="spike" parent="Spikes" instance=ExtResource("12_kmja1")]
-position = Vector2(-59, 33)
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]

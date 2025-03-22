@@ -24,6 +24,9 @@ func _on_body_entered(body: Node2D) -> void:
 	following = true
 	if not first:
 		print("first")
+		$CollisionShape2D.queue_free()
 		Global.collectibleCount += 1
+		Global.collectibleLeft.pop_front()
+		
 		first = true
 		offset *= Global.collectibleCount
