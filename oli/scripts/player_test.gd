@@ -98,7 +98,7 @@ func spawn_dash(direction):
 	dash.global_position = global_position - Vector2(40, 0)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	get_tree().change_scene_to_file("res://emma/gameOver.tscn")
+	die()
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
@@ -111,4 +111,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			get_tree().change_scene_to_file(Global.level3Scene)
 		elif Global.currentLevel == "Level3":
 			get_tree().change_scene_to_file(Global.endScene)
+	elif area.get_parent().get_parent().name == "spike":
+		die()
 	pass # Replace with function body.
+
+func die():
+	get_tree().change_scene_to_file(Global.gameOverScene)
