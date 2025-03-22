@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq7q1mjaqfv7x"]
+[gd_scene load_steps=9 format=3 uid="uid://bq7q1mjaqfv7x"]
 
 [ext_resource type="Script" path="res://emma/main_menu.gd" id="1_e5dkl"]
 [ext_resource type="LabelSettings" path="res://emma/label.tres" id="1_lajf8"]
@@ -8,12 +8,33 @@
 texture = ExtResource("3_bec0v")
 modulate_color = Color(0.621524, 0.621524, 0.621524, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7qf3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53hnb"]
+bg_color = Color(0.691357, 0.691357, 0.691357, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jm15"]
+bg_color = Color(0.540987, 0.540992, 0.540987, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nons3"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+bg_color = Color(0.986752, 0.986752, 0.986752, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 11
 shadow_size = 5
 shadow_offset = Vector2(3.4, 3.41)
 
@@ -93,38 +114,50 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 7
 
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
+[node name="start" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_nons3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a7qf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_53hnb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3jm15")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nons3")
-text = "Start Game"
+text = "  Start Game  "
 
-[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+[node name="controlss" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_nons3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a7qf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_53hnb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3jm15")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nons3")
-text = "Controls"
+text = "  Controls  "
 
-[node name="Button3" type="Button" parent="Control/VBoxContainer"]
+[node name="quitt" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_nons3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nons3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a7qf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_53hnb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3jm15")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nons3")
-text = "Quit"
+text = "  Quit  "
 
 [node name="title" type="Label" parent="Control"]
 layout_mode = 1
@@ -142,6 +175,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 70
 text = "Beyond the Wall"
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/controlss" to="." method="_on_controlss_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/quitt" to="." method="_on_quitt_pressed"]
