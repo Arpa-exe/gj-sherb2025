@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dvk38wrht8upb" path="res://jade-murtaza/Level2/Assets/PNG/Background/Background_01.png" id="1_6svh6"]
 [ext_resource type="Texture2D" uid="uid://b05j53g0kbgmb" path="res://jade-murtaza/Level2/Assets/PNG/Background/Background_02.png" id="2_7i20b"]
-[ext_resource type="Texture2D" uid="uid://bp8yfipvhvyrv" path="res://jade-murtaza/Level2/Assets/goodtile/tileset1L2.png" id="3_uij1n"]
-[ext_resource type="Texture2D" uid="uid://c0wsrfrsnkx0l" path="res://jade-murtaza/Level2/Assets/goodtile/tileset2L2.png" id="4_rocni"]
-[ext_resource type="Texture2D" uid="uid://sa2ogxf7dpgo" path="res://jade-murtaza/Level2/Assets/goodtile/tileset3L3.png" id="5_hrb16"]
+[ext_resource type="Texture2D" uid="uid://cndh5hslcewej" path="res://jade-murtaza/Level2/Assets/goodtile/tileset1L2.png" id="3_uij1n"]
+[ext_resource type="Texture2D" uid="uid://cfrfispmhh5re" path="res://jade-murtaza/Level2/Assets/goodtile/tileset2L2.png" id="4_rocni"]
+[ext_resource type="Texture2D" uid="uid://537x8tdpmc0r" path="res://jade-murtaza/Level2/Assets/goodtile/tileset3L3.png" id="5_hrb16"]
 [ext_resource type="Texture2D" uid="uid://dcq0t74hnf0a0" path="res://jade-murtaza/Level2/Assets/goodtile/tilesetenviro1L2.png" id="6_t86g8"]
 [ext_resource type="Texture2D" uid="uid://ds2q7wm5fikm6" path="res://jade-murtaza/Level2/Assets/goodtile/tilesetenviro2L2.png" id="7_jvr8g"]
 
