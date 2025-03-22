@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhlbr8ag1844b"]
+
+[ext_resource type="Script" path="res://emma/main_menu.gd" id="1_e5dkl"]
+[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="1_lajf8"]
+
+[node name="mainMenu" type="Node2D"]
+script = ExtResource("1_e5dkl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.734833, 1, 0.63, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "GAME NAME"
+label_settings = ExtResource("1_lajf8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="start" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Start game!"
+
+[node name="quit" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit game :("
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]

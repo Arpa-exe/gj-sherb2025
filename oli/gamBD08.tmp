@@ -597,7 +597,7 @@ position = Vector2(-32, 7)
 [node name="Killzone" parent="." instance=ExtResource("3_se2dm")]
 position = Vector2(-36, 128)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(72, 0)
 scale = Vector2(1, 0.01)
 shape = SubResource("RectangleShape2D_t7jto")
@@ -611,9 +611,6 @@ position = Vector2(-13, 1)
 zoom = Vector2(4, 4)
 limit_bottom = 150
 position_smoothing_enabled = true
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="PlayerTest"]
-position = Vector2(-13, 1)
 
 [node name="Crystal2" parent="." instance=ExtResource("5_oq028")]
 position = Vector2(40, 7)
@@ -637,5 +634,3 @@ texture = ExtResource("6_4nj7s")
 visible = false
 layout_mode = 2
 texture = ExtResource("7_oyf6y")
-
-[connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]
