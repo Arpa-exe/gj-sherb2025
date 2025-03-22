@@ -116,10 +116,15 @@ func spawn_dash(direction):
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	die()
 
-
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	print("player hitbox ", area.get_parent())
 	print("area: ", area)
+	if Global.currentLevel == "1":
+		if area.get_parent().name == "Keys":
+			print('collectibleCount: ', Global.collectibleCount)
+			var count = Global.collectibleCount
+			collectibles[count].visible = false
+
 	if (area.get_parent().get_parent().name == "Sign"):
 		if Global.currentLevel == "1": # changed level 1 to 2 
 			get_tree().change_scene_to_file(Global.level2Scene) # changed level 2 to 1
@@ -127,11 +132,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			get_tree().change_scene_to_file(Global.level3Scene)
 		elif Global.currentLevel == "3":
 			get_tree().change_scene_to_file(Global.endScene)
-	elif area.get_parent().name == "Keys":
-		print('collectibleCount: ', Global.collectibleCount)
-		var count = Global.collectibleCount
-		collectibles[count].visible = false
-		print('key')
+
 	elif (area.get_parent().name == "enemyFireSlime"):
 		takeHit(2)
 	elif (area.get_parent().name == "enemySlime"):
@@ -145,11 +146,9 @@ func die():
 	alive = false
 	animated_sprite_2d.play("die")
 
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.get_animation() == "die":
 		get_tree().change_scene_to_file(Global.gameOverScene)
-
 
 func _on_stomp_area_area_entered(area: Area2D) -> void:
 	if (area.get_parent().name == "enemySlime"):
