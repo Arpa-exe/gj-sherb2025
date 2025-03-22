@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cfmxw1wl807us"]
+[gd_scene load_steps=14 format=4 uid="uid://cfmxw1wl807us"]
 
 [ext_resource type="Texture2D" uid="uid://dm62l2s621321" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/1.png" id="1_crenr"]
 [ext_resource type="Texture2D" uid="uid://dagfbg77u86gq" path="res://jade-murtaza/Level3/Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_fonym"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bu2702fu62swp" path="res://oli/PlayerTest.tscn" id="6_vflnf"]
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="7_siobd"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="8_gmb50"]
-[ext_resource type="PackedScene" path="res://emma/enemy_fire_slime.tscn" id="9_8vq8e"]
+[ext_resource type="PackedScene" uid="uid://dunairtcn761x" path="res://emma/enemy_fire_slime.tscn" id="9_8vq8e"]
+[ext_resource type="PackedScene" uid="uid://dxc04o1glatr5" path="res://emma/enemy_slime.tscn" id="10_k1ec0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0l5"]
 texture = ExtResource("1_fonym")
@@ -223,9 +224,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gs0l5")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gv3d6"]
-vertices = PackedVector2Array(-43.5781, 115.789, -189.992, 125.258, -180.844, 23.8594, -66.7891, 22.1172)
+vertices = PackedVector2Array(1767.66, 154.977, -278, 153, -278, -151.008, 1757.33, -154.977)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-201, 136, -31, 125, -59, 12, -190, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-288, 163, 1778, 165, 1767, -165, -288, -161)])
 
 [node name="Level2Water" type="Node2D"]
 
@@ -315,15 +316,27 @@ text = "pause"
 
 [node name="enemyFireSlime" parent="." node_paths=PackedStringArray("markers") instance=ExtResource("9_8vq8e")]
 position = Vector2(-146, 53)
-markers = [NodePath("../markers/Marker2D"), NodePath("../markers/Marker2D2")]
+markers = [NodePath("../markersFire/Marker2D"), NodePath("../markersFire/Marker2D2")]
 
-[node name="markers" type="Node2D" parent="."]
+[node name="markersFire" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="markers"]
+[node name="Marker2D" type="Marker2D" parent="markersFire"]
 position = Vector2(-168, 57)
 
-[node name="Marker2D2" type="Marker2D" parent="markers"]
+[node name="Marker2D2" type="Marker2D" parent="markersFire"]
 position = Vector2(-119, 58)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_gv3d6")
+
+[node name="enemySlime" parent="." node_paths=PackedStringArray("markers") instance=ExtResource("10_k1ec0")]
+position = Vector2(55, 91)
+markers = [NodePath("../markersSlime/Marker2D"), NodePath("../markersSlime/Marker2D2")]
+
+[node name="markersSlime" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="markersSlime"]
+position = Vector2(31, 94)
+
+[node name="Marker2D2" type="Marker2D" parent="markersSlime"]
+position = Vector2(80, 94)
