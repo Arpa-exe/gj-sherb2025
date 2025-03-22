@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -300.0
 @onready var nextLabel = $CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/nextLabel
 @onready var collectibleUI = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect"
 @onready var collectibleUI2 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect2"
+@onready var collectibleUI3 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect3"
 
 @onready var missingLabel = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/Label"
 @onready var missingCrystalUI = $"../CanvasLayer/VBoxContainer/HBoxContainer/missingContainer/TextureRect"
