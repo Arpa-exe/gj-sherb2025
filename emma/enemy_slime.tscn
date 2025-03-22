@@ -305,7 +305,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fj8np"]
 radius = 1.0
-height = 10.0
+height = 6.0
 
 [node name="enemySlime" type="CharacterBody2D"]
 script = ExtResource("1_fsaf5")
@@ -316,9 +316,9 @@ shape = SubResource("CapsuleShape2D_1o5p3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m5rs7")
-animation = &"die"
-frame = 9
-frame_progress = 1.0
+animation = &"roll"
+frame = 2
+frame_progress = 0.522329
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -328,5 +328,11 @@ frame_progress = 1.0
 position = Vector2(0, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fj8np")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1o5p3")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
