@@ -1,10 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://dxc04o1glatr5"]
+[gd_scene load_steps=44 format=3 uid="uid://dxc04o1glatr5"]
 
 [ext_resource type="Texture2D" uid="uid://c4vm1luau8dkq" path="res://Assets/emma/slime spritesheet calciumtrice.png" id="1_pafi0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1o5p3"]
-radius = 7.0
-height = 20.0
+radius = 5.0
+height = 14.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfg34"]
 atlas = ExtResource("1_pafi0")
@@ -85,6 +85,42 @@ region = Rect2(256, 462, 32, 33)
 [sub_resource type="AtlasTexture" id="AtlasTexture_01r10"]
 atlas = ExtResource("1_pafi0")
 region = Rect2(288, 462, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgpi2"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(0, 363, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir17o"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(32, 363, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sun7e"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(64, 363, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36hd0"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(96, 363, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0nua"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(128, 363, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riohg"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(160, 363, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vt2w"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(192, 363, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3wen"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(224, 363, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0k6r"]
+atlas = ExtResource("1_pafi0")
+region = Rect2(256, 363, 32, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lrrv6"]
 atlas = ExtResource("1_pafi0")
@@ -200,6 +236,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lgpi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir17o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sun7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36hd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0nua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riohg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vt2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3wen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0k6r")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lrrv6")
 }, {
 "duration": 1.0,
@@ -234,15 +302,27 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fj8np"]
+radius = 1.0
+height = 10.0
+
 [node name="enemySlime" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1o5p3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m5rs7")
-frame_progress = 0.677175
+animation = &"roll"
+frame = 6
+frame_progress = 0.304885
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="hitboxArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxArea2D"]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fj8np")
