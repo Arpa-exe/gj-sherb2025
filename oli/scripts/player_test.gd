@@ -18,6 +18,10 @@ const JUMP_VELOCITY = -410.0
 @onready var progressBar = $"../CanvasLayer/VBoxContainer/ProgressBar"
 @onready var progressBarLabel = $"../CanvasLayer/VBoxContainer/ProgressBar/Label"
 
+@onready var jump_ray: RayCast2D = $jump_ray
+@onready var left_ray: RayCast2D = $left_ray
+@onready var right_ray: RayCast2D = $right_ray
+
 var is_boing = false
 var alive = true
 var damage = true
@@ -49,7 +53,6 @@ func _physics_process(delta: float) -> void:
 		var on_wall = is_on_wall() and not is_on_floor()
 		if on_wall:
 			animated_sprite_2d.play("wall")
-			print("you are touching the wall")
 		if len(Global.collectibleLeft) == 0:
 			missingLabel.visible = false
 		else:
@@ -74,7 +77,14 @@ func _physics_process(delta: float) -> void:
 				"boing":
 					spawn_beam()
 					var tween = create_tween()
-					tween.tween_property(self, "global_position:y", global_position.y - 48, 0.1)
+					if jump_ray.is_colliding():
+						var dist = jump_ray.get_collision_point()
+						dist = global_position.y - dist.y
+						if dist > 0:
+							print(dist)
+							tween.tween_property(self, "global_position:y", global_position.y - dist, 0.1)
+					else:
+						tween.tween_property(self, "global_position:y", global_position.y - 48, 0.1)
 					velocity.y = JUMP_VELOCITY
 					missing1.visible = false
 					is_boing = false
@@ -88,7 +98,17 @@ func _physics_process(delta: float) -> void:
 					else:
 						spawn_dash(direction)
 						var tween = create_tween()
-						tween.tween_property(self, "global_position:x", global_position.x + 80 * direction, 0.2)
+						if direction > 0:
+							if right_ray.is_colliding():
+								var dist = right_ray.get_collision_point()
+								dist = global_position.x + dist.x
+								tween.tween_property(self, "global_position:x", global_position.x + dist * direction, 0.2)
+						elif left_ray.is_colliding():
+							var dist = left_ray.get_collision_point()
+							dist = global_position.x - dist.x
+							tween.tween_property(self, "global_position:x", global_position.x + dist * direction, 0.2)
+						else:
+							tween.tween_property(self, "global_position:x", global_position.x + 80 * direction, 0.2)
 						is_boing = false
 						missing2.visible = false
 				_:
@@ -144,7 +164,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			get_tree().change_scene_to_file(Global.endScene)
 	elif area.get_parent().name == "Keys":
 		print('collectibleCount: ', Global.collectibleCount)
-		var count = Global.collectibleCount
+		var count = Global.collectibleCount - 1
 		collectibles[count].visible = false
 		print('key')
 	elif (area.get_parent().name == "enemyFireSlime"):

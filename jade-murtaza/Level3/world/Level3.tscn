@@ -245,7 +245,6 @@ scale = Vector2(3.13733, 0.777543)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone7"]
 position = Vector2(94.026, -176.196)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dyanp")
 
 [node name="Crystal" parent="Killzones" instance=ExtResource("11_d4kbg")]

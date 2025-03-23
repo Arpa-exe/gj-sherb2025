@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 
 func reset():
 	powers = []
+	collectibleCount = 0
 	if currentLevel != null:
 		if currentLevel == "1":
 			collectibleLeft = ["key", "key", "key"]
