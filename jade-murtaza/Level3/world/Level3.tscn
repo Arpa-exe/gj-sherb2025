@@ -9,11 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="6_nslbi"]
 [ext_resource type="Texture2D" uid="uid://cjm80docgpgee" path="res://Assets/emma/id.png" id="7_vdipy"]
 [ext_resource type="Texture2D" uid="uid://bedhtneeflcy4" path="res://Assets/emma/key.png" id="8_rh3cf"]
-[ext_resource type="LabelSettings" path="res://emma/label.tres" id="9_coykk"]
+[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="9_coykk"]
 [ext_resource type="PackedScene" uid="uid://dvy2d7ce4pr8l" path="res://oli/killzone.tscn" id="10_ngeod"]
 [ext_resource type="PackedScene" uid="uid://dobhgepw1f4qi" path="res://oli/DashCrystal.tscn" id="11_d4kbg"]
 [ext_resource type="PackedScene" uid="uid://cf8d1p7r33ebe" path="res://oli/Crystal.tscn" id="11_ugd38"]
-[ext_resource type="PackedScene" path="res://emma/id.tscn" id="14_f2g6c"]
+[ext_resource type="PackedScene" uid="uid://ianj88boanh6" path="res://emma/id.tscn" id="14_f2g6c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y67ta"]
 bg_color = Color(0.1066, 0.82, 0.13038, 1)
@@ -291,3 +291,7 @@ scale = Vector2(0.34, 0.34)
 
 [node name="id" parent="." instance=ExtResource("14_f2g6c")]
 position = Vector2(-228, -187)
+
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]

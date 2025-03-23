@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cfmxw1wl807us"]
+[gd_scene load_steps=22 format=4 uid="uid://cfmxw1wl807us"]
 
 [ext_resource type="Texture2D" uid="uid://dm62l2s621321" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/1.png" id="1_crenr"]
 [ext_resource type="Texture2D" uid="uid://dagfbg77u86gq" path="res://jade-murtaza/Level3/Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_fonym"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="12_0qsek"]
 [ext_resource type="Texture2D" uid="uid://bedhtneeflcy4" path="res://Assets/emma/key.png" id="14_p12hm"]
 [ext_resource type="PackedScene" uid="uid://224fn117xb44" path="res://oli/finish_zone.tscn" id="16_ikqpd"]
+[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="17_almq4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0l5"]
 texture = ExtResource("1_fonym")
@@ -313,8 +314,6 @@ position = Vector2(80, 94)
 [node name="Crystal" parent="." instance=ExtResource("10_dgve0")]
 position = Vector2(803, 73)
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
 [node name="Spikes" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -413,4 +412,51 @@ position = Vector2(1639, -67)
 [node name="mp3" parent="mp3" instance=ExtResource("10_rjl2g")]
 position = Vector2(831, 109)
 
+[node name="pauseMenu" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="pauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseMenu/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="pauseMenu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Paused"
+label_settings = ExtResource("17_almq4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pauseMenu/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="continue" type="Button" parent="pauseMenu/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="mainMenu" type="Button" parent="pauseMenu/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="quit" type="Button" parent="pauseMenu/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit :("
+
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]

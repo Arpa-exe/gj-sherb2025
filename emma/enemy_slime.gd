@@ -52,6 +52,8 @@ func moveTowardsMarker(marker, delta):
 	enemySlime.move_and_slide()
 
 func die():
+	$Area2D.queue_free()
+	$hitboxArea2D.queue_free()
 	alive = false
 	animated_sprite_2d.animation = "die"
 

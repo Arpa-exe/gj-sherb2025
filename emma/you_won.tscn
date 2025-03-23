@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo2tpg0tuluaw"]
+[gd_scene load_steps=11 format=3 uid="uid://bo2tpg0tuluaw"]
 
+[ext_resource type="Script" path="res://emma/you_won.gd" id="1_icpl8"]
 [ext_resource type="Texture2D" uid="uid://dm62l2s621321" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/1.png" id="1_la5la"]
 [ext_resource type="Texture2D" uid="uid://b5ogde7qhn5gs" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/2.png" id="2_asro5"]
 [ext_resource type="Texture2D" uid="uid://235u45bvncel" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/3.png" id="3_23ihs"]
@@ -38,6 +39,7 @@ shadow_offset = Vector2(3.4, 3.41)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pnbq0"]
 
 [node name="youWon" type="Node2D"]
+script = ExtResource("1_icpl8")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -85,7 +87,7 @@ offset_top = 88.0
 offset_right = 197.0
 offset_bottom = 128.0
 
-[node name="Quit" type="Button" parent="HBoxContainer"]
+[node name="quit" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -98,7 +100,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ih57a")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rffgx")
 text = "Quit"
 
-[node name="Main Menu" type="Button" parent="HBoxContainer"]
+[node name="mainMenu" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -110,3 +112,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8ykt5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ih57a")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rffgx")
 text = "Main Menu"
+
+[connection signal="pressed" from="HBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]

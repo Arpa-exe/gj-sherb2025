@@ -22,6 +22,9 @@ const JUMP_VELOCITY = -410.0
 @onready var left_ray: RayCast2D = $left_ray
 @onready var right_ray: RayCast2D = $right_ray
 
+@onready var pauseMenu = $"../pauseMenu"
+
+var paused = false
 var is_boing = false
 var alive = true
 var damage = true
@@ -68,7 +71,16 @@ func _physics_process(delta: float) -> void:
 			elif on_wall and can_wall <= 0:
 				can_wall = 10
 				velocity = Vector2(300 * get_wall_normal().x, -200)
-			
+
+		if Input.is_action_just_pressed("pause"):
+			if paused == false:
+				paused = true
+				pauseMenu.visible = true
+				get_tree().paused = true
+			else:
+				paused = false
+				pauseMenu.visible = false
+				get_tree().paused = false
 
 		if Input.is_action_just_pressed("use_item") and len(Global.powers) > 0 and not is_boing:
 			is_boing = true
