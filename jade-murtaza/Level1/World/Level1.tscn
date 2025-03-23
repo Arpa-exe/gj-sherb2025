@@ -476,6 +476,8 @@ tile_set = SubResource("TileSet_vxggh")
 [node name="PlayerTest" parent="." instance=ExtResource("2_eesy8")]
 unique_name_in_owner = true
 position = Vector2(32, 51)
+walkSpeed = 130.0
+runSpeed = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerTest"]
 position = Vector2(-13, 1)
