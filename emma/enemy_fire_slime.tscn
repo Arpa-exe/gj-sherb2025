@@ -157,7 +157,7 @@ shape = SubResource("CapsuleShape2D_xcv5c")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qpsv8")
-volume_db = 8.441
+volume_db = 10.0
 pitch_scale = 0.75
 autoplay = true
 max_distance = 250.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tmlr7m1eus4p"
+path="res://.godot/imported/RPG - Costal Town Background.mp3-6d15f08b8d09057956fae9318064a10d.mp3str"
+
+[deps]
+
+source_file="res://Assets/emma/RPG - Costal Town Background.mp3"
+dest_files=["res://.godot/imported/RPG - Costal Town Background.mp3-6d15f08b8d09057956fae9318064a10d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bedhtneeflcy4" path="res://Assets/emma/key.png" id="14_p12hm"]
 [ext_resource type="PackedScene" uid="uid://224fn117xb44" path="res://oli/finish_zone.tscn" id="16_ikqpd"]
 [ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="17_almq4"]
-[ext_resource type="AudioStream" uid="uid://7tr425ijhxpr" path="res://Assets/music/Upbeat - The Beach  Background Music  Instrumental Music  Tropical House.mp3" id="18_bhgpw"]
+[ext_resource type="AudioStream" uid="uid://0g1b6vk8xti6" path="res://Assets/emma/White Sands Day Night.mp3" id="18_gxdmo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0l5"]
 texture = ExtResource("1_fonym")
@@ -459,7 +459,8 @@ layout_mode = 2
 text = "Quit :("
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("18_bhgpw")
+stream = ExtResource("18_gxdmo")
+volume_db = -9.904
 autoplay = true
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]
