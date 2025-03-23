@@ -23,7 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
 	player = body
 	following = true
 	if not first:
-		print("first")
+		$AudioStreamPlayer2D.play()
 		Global.collectibleCount += 1
 		first = true
 		offset *= Global.collectibleCount

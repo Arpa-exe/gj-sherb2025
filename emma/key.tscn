@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2745shly4cb5"]
+[gd_scene load_steps=7 format=3 uid="uid://b2745shly4cb5"]
 
-[ext_resource type="Script" uid="uid://p1qi7am8oq3k" path="res://emma/key.gd" id="1_8i5m5"]
+[ext_resource type="Script" path="res://emma/key.gd" id="1_8i5m5"]
 [ext_resource type="Texture2D" uid="uid://esdqkbkcbuw4" path="res://Assets/emma/pixel_icons_by_oceansdream.png" id="1_ho326"]
+[ext_resource type="AudioStream" uid="uid://8r3xvmn5ikem" path="res://Assets/emma/Video Project 1.mp3" id="3_plv8e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53ixl"]
 atlas = ExtResource("1_ho326")
@@ -34,5 +35,9 @@ sprite_frames = SubResource("SpriteFrames_malrs")
 position = Vector2(-2, 0)
 rotation = -0.760964
 shape = SubResource("CapsuleShape2D_8qf8k")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_plv8e")
+volume_db = 15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

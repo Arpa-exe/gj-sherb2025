@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://bekr8yia5ldkf"]
 
-[ext_resource type="Script" uid="uid://bt6oy206i3l87" path="res://jade-murtaza/Level3/world/level_3.gd" id="1_erxps"]
+[ext_resource type="Script" path="res://jade-murtaza/Level3/world/level_3.gd" id="1_erxps"]
 [ext_resource type="PackedScene" uid="uid://bu2702fu62swp" path="res://oli/PlayerTest.tscn" id="3_slc74"]
 [ext_resource type="PackedScene" uid="uid://t6xdne5l36hq" path="res://oli/button.tscn" id="4_gewwo"]
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="5_802ds"]
@@ -295,6 +295,7 @@ position = Vector2(-228, -187)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_5n45g")
+volume_db = -12.18
 autoplay = true
 
 [connection signal="pressed" from="pauseMenu/ColorRect/VBoxContainer/HBoxContainer/continue" to="." method="_on_continue_pressed"]

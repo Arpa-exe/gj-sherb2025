@@ -12,4 +12,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		queue_free()
 
 func pick_up():
-	player_test.catch_dash_crystal()
+	player_test.catch_dash_crystal()	
+	$AudioStreamPlayer2D.play()

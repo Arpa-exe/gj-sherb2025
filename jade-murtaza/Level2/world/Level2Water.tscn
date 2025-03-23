@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dm62l2s621321" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/1.png" id="1_crenr"]
 [ext_resource type="Texture2D" uid="uid://dagfbg77u86gq" path="res://jade-murtaza/Level3/Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_fonym"]
-[ext_resource type="Script" uid="uid://dm6pq0f2xekvc" path="res://jade-murtaza/Level2/world/level_2_water.gd" id="1_hgbso"]
+[ext_resource type="Script" path="res://jade-murtaza/Level2/world/level_2_water.gd" id="1_hgbso"]
 [ext_resource type="Texture2D" uid="uid://b5ogde7qhn5gs" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/2.png" id="2_i1g1s"]
 [ext_resource type="Texture2D" uid="uid://235u45bvncel" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/3.png" id="3_7voxt"]
 [ext_resource type="Texture2D" uid="uid://mx717paob2cr" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/4.png" id="4_8koir"]

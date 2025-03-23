@@ -13,3 +13,4 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func pick_up():
 	player_test.catch_crystal()
+	$AudioStreamPlayer2D.play()

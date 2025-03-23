@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cf8d1p7r33ebe"]
+[gd_scene load_steps=20 format=3 uid="uid://cf8d1p7r33ebe"]
 
-[ext_resource type="Script" uid="uid://db78o6y5cw5ff" path="res://oli/scripts/crystal.gd" id="1_grda8"]
+[ext_resource type="Script" path="res://oli/scripts/crystal.gd" id="1_grda8"]
 [ext_resource type="Texture2D" uid="uid://kan7pkplrlkq" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon1.png" id="1_mpvbg"]
 [ext_resource type="Texture2D" uid="uid://d1nt15qrbj257" path="res://Assets/Smoke Effects/Smoke Effect 01/Smoke VFX 2.png" id="3_crn26"]
+[ext_resource type="AudioStream" uid="uid://8r3xvmn5ikem" path="res://Assets/emma/Video Project 1.mp3" id="4_1uwhe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5s0ss"]
 atlas = ExtResource("3_crn26")
@@ -128,6 +129,10 @@ position = Vector2(7.10543e-15, -3.55271e-15)
 rotation = -2.69304
 scale = Vector2(1, 2.1)
 shape = SubResource("CircleShape2D_xnily")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1uwhe")
+volume_db = 15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

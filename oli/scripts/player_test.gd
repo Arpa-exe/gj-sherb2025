@@ -159,11 +159,13 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 func spawn_beam():
+	$crystalsAudio.play()
 	var beam = preload("res://oli/vertical_beam.tscn").instantiate()
 	get_parent().add_child(beam)
 	beam.global_position = global_position - Vector2(0, 20)
 	
 func spawn_dash(direction):
+	$crystalsAudio.play()
 	var dash = preload("res://oli/light_dash.tscn").instantiate()
 	get_parent().add_child(dash)
 	dash.global_position = global_position - Vector2(40, 0)
