@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Area2D
 
 @onready var color_rect: ColorRect = $ColorRect
 @onready var player_test: CharacterBody2D = %PlayerTest
@@ -10,10 +10,8 @@ var timer = 0
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_press:
 		if Global.currentLevel == '1' and Global.collectibleCount == 3:
-			play("pressed")
 			pressed = true
 		if Global.currentLevel == '2' and Global.collectibleCount == 1:
-			play("pressed")
 			pressed = true
 		if Global.currentLevel == '3' and Global.collectibleCount == 1:
 			pressed = true
@@ -36,12 +34,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	can_press = false
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	can_press = true
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
 	can_press = false

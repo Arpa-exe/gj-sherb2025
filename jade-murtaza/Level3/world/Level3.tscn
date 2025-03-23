@@ -248,7 +248,10 @@ position = Vector2(94.026, -176.196)
 shape = SubResource("RectangleShape2D_dyanp")
 
 [node name="Crystal" parent="Killzones" instance=ExtResource("11_d4kbg")]
-position = Vector2(131, 107)
+position = Vector2(131, 112)
+
+[node name="Crystal2" parent="Killzones" instance=ExtResource("11_ugd38")]
+position = Vector2(72, 96)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
