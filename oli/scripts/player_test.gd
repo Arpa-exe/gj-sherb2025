@@ -228,6 +228,7 @@ func _on_stomp_area_area_entered(area: Area2D) -> void:
 
 func takeHit(damageLevel):
 	if damage: 
+		$AudioStreamPlayer2D.play()
 		Global.currentHealth -= damageLevel
 		var healthTween = create_tween()
 		healthTween.tween_property(progressBar, "value", Global.currentHealth, 1)
