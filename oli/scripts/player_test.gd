@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -410.0
+var SPEED = 130.0
+@export var walkSpeed = 130.0
+@export var runSpeed = 200.0
+const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -38,6 +40,7 @@ func _ready() -> void:
 	Global.currentHealth = 4
 	progressBarLabel.text = str("Health: ", Global.currentHealth, "/4")
 	collectibles = [collectibleUI, collectibleUI2, collectibleUI3]
+	SPEED = walkSpeed
 
 func catch_crystal():
 	Global.powers.push_back("boing")
@@ -63,6 +66,11 @@ func _physics_process(delta: float) -> void:
 		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta * 1.5
+		
+		if Input.is_action_pressed("run"):
+			SPEED = runSpeed
+		else:
+			SPEED = walkSpeed
 
 		# Handle jump.
 		if Input.is_action_just_pressed("jump"):
