@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		var on_wall = is_on_wall() and not is_on_floor()
 		if on_wall:
 			animated_sprite_2d.play("wall")
-		if len(Global.collectibleLeft) == 0:
+		if len(Global.collectibleLeft) == Global.collectibleCount:
 			missingLabel.visible = false
 		else:
 			missingLabel.visible = true
@@ -167,6 +167,16 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		var count = Global.collectibleCount - 1
 		collectibles[count].visible = false
 		print('key')
+	elif area.get_parent().name == "id":
+		print('collectibleCount: ', Global.collectibleCount)
+		var count = Global.collectibleCount - 1
+		collectibles[count].visible = false
+		print('id')
+	elif area.get_parent().name == "mp3":
+		print('collectibleCount: ', Global.collectibleCount)
+		var count = Global.collectibleCount - 1
+		collectibles[count].visible = false
+		print('mp3')
 	elif (area.get_parent().name == "enemyFireSlime"):
 		takeHit(2)
 	elif (area.get_parent().name == "enemySlime"):
@@ -210,3 +220,7 @@ func takeHit(damageLevel):
 		# Cooldown after hit gives player - 3 seconds before hit again 
 		damage = false
 		timer_cooldown = cooldown
+		
+func ending():
+	animated_sprite_2d.play("end")
+	alive = false

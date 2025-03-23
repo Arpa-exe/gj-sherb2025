@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cfmxw1wl807us"]
+[gd_scene load_steps=21 format=4 uid="uid://cfmxw1wl807us"]
 
 [ext_resource type="Texture2D" uid="uid://dm62l2s621321" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/1.png" id="1_crenr"]
 [ext_resource type="Texture2D" uid="uid://dagfbg77u86gq" path="res://jade-murtaza/Level3/Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_fonym"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dpeoac884inoh" path="res://emma/mp_3.tscn" id="10_rjl2g"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="12_0qsek"]
 [ext_resource type="Texture2D" uid="uid://bedhtneeflcy4" path="res://Assets/emma/key.png" id="14_p12hm"]
+[ext_resource type="PackedScene" uid="uid://224fn117xb44" path="res://oli/finish_zone.tscn" id="16_ikqpd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0l5"]
 texture = ExtResource("1_fonym")
@@ -312,9 +313,6 @@ position = Vector2(80, 94)
 [node name="Crystal" parent="." instance=ExtResource("10_dgve0")]
 position = Vector2(803, 73)
 
-[node name="mp3" parent="." instance=ExtResource("10_rjl2g")]
-position = Vector2(831, 109)
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="Spikes" type="Node2D" parent="."]
@@ -406,5 +404,13 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 text = "pause"
+
+[node name="FinishZone" parent="." instance=ExtResource("16_ikqpd")]
+position = Vector2(1639, -67)
+
+[node name="mp3" type="Node2D" parent="."]
+
+[node name="mp3" parent="mp3" instance=ExtResource("10_rjl2g")]
+position = Vector2(831, 109)
 
 [connection signal="screen_exited" from="PlayerTest/VisibleOnScreenNotifier2D" to="PlayerTest" method="_on_visible_on_screen_notifier_2d_screen_exited"]

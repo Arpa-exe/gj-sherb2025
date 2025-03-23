@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bu2702fu62swp"]
+[gd_scene load_steps=34 format=3 uid="uid://bu2702fu62swp"]
 
 [ext_resource type="Texture2D" uid="uid://peoxbglwu53q" path="res://Assets/Hana Caraka - Base Character [sample]/idle.png" id="1_6jcjh"]
 [ext_resource type="Script" path="res://oli/scripts/player_test.gd" id="1_38qmw"]
@@ -84,6 +84,22 @@ region = Rect2(320, 0, 80, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u1y0h"]
 atlas = ExtResource("4_437lk")
 region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1hkr"]
+atlas = ExtResource("1_6jcjh")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ktg"]
+atlas = ExtResource("1_6jcjh")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn7w6"]
+atlas = ExtResource("1_6jcjh")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_das65"]
+atlas = ExtResource("1_6jcjh")
+region = Rect2(240, 160, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8plg4"]
 atlas = ExtResource("4_437lk")
@@ -173,6 +189,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_l1hkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ktg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn7w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_das65")
+}],
+"loop": true,
+"name": &"end",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8plg4")
 }],
 "loop": true,
@@ -198,8 +231,9 @@ script = ExtResource("1_38qmw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0wo0w")
-animation = &"wall"
+animation = &"end"
 autoplay = "IdleRight"
+frame_progress = 0.137759
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
