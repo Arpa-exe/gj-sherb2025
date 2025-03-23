@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2745shly4cb5"]
 
-[ext_resource type="Script" path="res://emma/key.gd" id="1_8i5m5"]
+[ext_resource type="Script" uid="uid://p1qi7am8oq3k" path="res://emma/key.gd" id="1_8i5m5"]
 [ext_resource type="Texture2D" uid="uid://esdqkbkcbuw4" path="res://Assets/emma/pixel_icons_by_oceansdream.png" id="1_ho326"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53ixl"]

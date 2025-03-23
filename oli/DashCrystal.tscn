@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dobhgepw1f4qi"]
 
-[ext_resource type="Script" path="res://oli/scripts/dash_crystal.gd" id="1_sjrm3"]
+[ext_resource type="Script" uid="uid://dqxet6o1aa6e0" path="res://oli/scripts/dash_crystal.gd" id="1_sjrm3"]
 [ext_resource type="Texture2D" uid="uid://d1evy617mkpnx" path="res://Assets/Minerals Pixel Art/PNG/Transperent/Icon25.png" id="2_qlcj4"]
 [ext_resource type="Texture2D" uid="uid://d1nt15qrbj257" path="res://Assets/Smoke Effects/Smoke Effect 01/Smoke VFX 2.png" id="3_eeec0"]
 

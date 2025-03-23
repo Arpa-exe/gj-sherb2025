@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://dunairtcn761x"]
 
-[ext_resource type="Script" path="res://emma/enemy_fire_slime.gd" id="1_or2av"]
+[ext_resource type="Script" uid="uid://bt8otkd3ckk4j" path="res://emma/enemy_fire_slime.gd" id="1_or2av"]
 [ext_resource type="Texture2D" uid="uid://k0uc5vp1ve14" path="res://Assets/emma/messy.png" id="2_wt1ye"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xcv5c"]

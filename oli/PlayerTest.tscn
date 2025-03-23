@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=3 uid="uid://bu2702fu62swp"]
 
 [ext_resource type="Texture2D" uid="uid://peoxbglwu53q" path="res://Assets/Hana Caraka - Base Character [sample]/idle.png" id="1_6jcjh"]
-[ext_resource type="Script" path="res://oli/scripts/player_test.gd" id="1_38qmw"]
+[ext_resource type="Script" uid="uid://sntj1s8t50db" path="res://oli/scripts/player_test.gd" id="1_38qmw"]
 [ext_resource type="Texture2D" uid="uid://dnnu7shef7gb5" path="res://Assets/Hana Caraka - Base Character [sample]/death.png" id="4_437lk"]
 [ext_resource type="Texture2D" uid="uid://cheffosiey6qk" path="res://Assets/Hana Caraka - Base Character [sample]/run.png" id="4_h50mw"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bl017mr5d51hg"]
 
 [ext_resource type="Texture2D" uid="uid://ctr1tscmm6lhs" path="res://Assets/Lightning/VFX1/Sprite-sheet/Sprite-sheet.png" id="1_g280p"]
-[ext_resource type="Script" path="res://oli/scripts/light_dash.gd" id="2_cxj3k"]
+[ext_resource type="Script" uid="uid://dvbblgomku85f" path="res://oli/scripts/light_dash.gd" id="2_cxj3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3p8o"]
 atlas = ExtResource("1_g280p")

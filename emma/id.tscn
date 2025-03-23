@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ianj88boanh6"]
 
 [ext_resource type="Texture2D" uid="uid://esdqkbkcbuw4" path="res://Assets/emma/pixel_icons_by_oceansdream.png" id="1_qdqqx"]
-[ext_resource type="Script" path="res://emma/id.gd" id="1_rjyth"]
+[ext_resource type="Script" uid="uid://bepc2d6blejbn" path="res://emma/id.gd" id="1_rjyth"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cj5pr"]
 atlas = ExtResource("1_qdqqx")

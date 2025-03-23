@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bq7q1mjaqfv7x"]
 
-[ext_resource type="Script" path="res://emma/main_menu.gd" id="1_e5dkl"]
-[ext_resource type="LabelSettings" path="res://emma/label.tres" id="1_lajf8"]
+[ext_resource type="Script" uid="uid://eyrn4b7eftue" path="res://emma/main_menu.gd" id="1_e5dkl"]
+[ext_resource type="LabelSettings" uid="uid://bdqrcoymiv5nr" path="res://emma/label.tres" id="1_lajf8"]
 [ext_resource type="Texture2D" uid="uid://cvnjknaq4alv6" path="res://Assets/lab1.jpeg" id="3_bec0v"]
-[ext_resource type="AudioStream" uid="uid://buyvsyvgst07r" path="res://Assets/music/Gregor Quendel - Cinematic Trailer Music Collection - MP3/Gregor Quendel - Cinematic Trailer Music - 11 - Cinematic Cello Ostinato Trailer.mp3" id="4_j0sxa"]
+[ext_resource type="AudioStream" uid="uid://e083mfye1hiy" path="res://Assets/music/SF Electronic music - Pixel Perfect/Pixel Perfect.wav" id="4_d4jlw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nh28"]
 texture = ExtResource("3_bec0v")
@@ -120,9 +120,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a7qf3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_53hnb")
@@ -135,9 +135,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a7qf3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_53hnb")
@@ -150,9 +150,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a7qf3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_53hnb")
@@ -198,7 +198,7 @@ he fights for freedom while facing
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_j0sxa")
+stream = ExtResource("4_d4jlw")
 autoplay = true
 
 [connection signal="pressed" from="Control/VBoxContainer/start" to="." method="_on_start_pressed"]

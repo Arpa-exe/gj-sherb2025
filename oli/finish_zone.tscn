@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://224fn117xb44"]
 
-[ext_resource type="Script" path="res://oli/finish_zone.gd" id="1_iveb1"]
+[ext_resource type="Script" uid="uid://cyolr2dqrm3eq" path="res://oli/finish_zone.gd" id="1_iveb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tjkj"]
 size = Vector2(121.6, 86.4)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dxv73jaxqe3mp"]
 
-[ext_resource type="Script" path="res://emma/controls.gd" id="1_srcn0"]
+[ext_resource type="Script" uid="uid://dbo62k5f61rlh" path="res://emma/controls.gd" id="1_srcn0"]
 [ext_resource type="Texture2D" uid="uid://cvnjknaq4alv6" path="res://Assets/lab1.jpeg" id="1_xqksm"]
 [ext_resource type="Texture2D" uid="uid://bstwle8bgcy1y" path="res://Assets/keyboard/keyboard asset/Individual Icons/keyboard_70.png" id="9_33b16"]
 [ext_resource type="Texture2D" uid="uid://687yqlyyjjyc" path="res://Assets/keyboard/keyboard asset/Individual Icons/keyboard_72.png" id="10_3fyfg"]

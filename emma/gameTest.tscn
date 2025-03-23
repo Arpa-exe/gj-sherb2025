@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://7utamst6wgy4"]
 
-[ext_resource type="Script" path="res://emma/game_test.gd" id="1_0vnid"]
+[ext_resource type="Script" uid="uid://jjsj8p3rsgln" path="res://emma/game_test.gd" id="1_0vnid"]
 [ext_resource type="Texture2D" uid="uid://cgrm7vfgyiqn0" path="res://Assets/Kiings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_yka5a"]
 [ext_resource type="PackedScene" uid="uid://cf8d1p7r33ebe" path="res://oli/Crystal.tscn" id="3_hws4l"]
 [ext_resource type="PackedScene" uid="uid://dvy2d7ce4pr8l" path="res://oli/killzone.tscn" id="4_2p2s3"]

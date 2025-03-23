@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://t6xdne5l36hq"]
 
 [ext_resource type="Texture2D" uid="uid://drvunookomi7a" path="res://Assets/Pixel GUI Buttons pack 3.png" id="1_jtene"]
-[ext_resource type="Script" path="res://oli/button.gd" id="2_rn2y0"]
+[ext_resource type="Script" uid="uid://oxuco7i2pa7t" path="res://oli/button.gd" id="2_rn2y0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjdmr"]
 atlas = ExtResource("1_jtene")
