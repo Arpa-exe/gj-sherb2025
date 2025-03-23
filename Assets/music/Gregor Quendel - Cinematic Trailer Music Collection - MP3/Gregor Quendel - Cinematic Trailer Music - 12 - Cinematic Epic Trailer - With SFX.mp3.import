@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tu8rhsqkiftl"
+path="res://.godot/imported/Gregor Quendel - Cinematic Trailer Music - 12 - Cinematic Epic Trailer - With SFX.mp3-98017c9cefd5b9e8559ad81d7e4454fd.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/Gregor Quendel - Cinematic Trailer Music Collection - MP3/Gregor Quendel - Cinematic Trailer Music - 12 - Cinematic Epic Trailer - With SFX.mp3"
+dest_files=["res://.godot/imported/Gregor Quendel - Cinematic Trailer Music - 12 - Cinematic Epic Trailer - With SFX.mp3-98017c9cefd5b9e8559ad81d7e4454fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
