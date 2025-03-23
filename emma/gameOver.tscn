@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ilf1xr08o6d5"]
+[gd_scene load_steps=10 format=3 uid="uid://ilf1xr08o6d5"]
 
 [ext_resource type="Script" path="res://emma/game_over.gd" id="1_4ldxi"]
 [ext_resource type="Texture2D" uid="uid://4td3ky4qfuve" path="res://Assets/died.jpg" id="2_qpmfg"]
 [ext_resource type="LabelSettings" path="res://emma/label.tres" id="2_x5jo0"]
+[ext_resource type="AudioStream" uid="uid://bfe6nu611q263" path="res://Assets/music/Slightly Dark Atmospheric Ambient Music Pack - SKYBOX/grimyth - Skybox 2.wav" id="4_ppddo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eg8uw"]
 texture = ExtResource("2_qpmfg")
@@ -136,6 +137,10 @@ but the path to freedom is never easy.
 Try again!"
 label_settings = ExtResource("2_x5jo0")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ppddo")
+autoplay = true
 
 [connection signal="pressed" from="Control/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]

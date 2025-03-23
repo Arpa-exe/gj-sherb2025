@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ch6sa4xb4wdqo"
+path="res://.godot/imported/grimyth - Skybox 7.wav-ff125d00a64742d2ba5260b91029f474.sample"
+
+[deps]
+
+source_file="res://Assets/music/Slightly Dark Atmospheric Ambient Music Pack - SKYBOX/grimyth - Skybox 7.wav"
+dest_files=["res://.godot/imported/grimyth - Skybox 7.wav-ff125d00a64742d2ba5260b91029f474.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
