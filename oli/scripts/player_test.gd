@@ -72,6 +72,14 @@ func _physics_process(delta: float) -> void:
 		else:
 			SPEED = walkSpeed
 
+		if Input.is_action_pressed("c") and Input.is_action_just_pressed("h"):
+			if Global.currentLevel == "1":
+				get_tree().change_scene_to_file(Global.level2Scene)
+			elif Global.currentLevel == "2":
+				get_tree().change_scene_to_file(Global.level3Scene)
+			elif Global.currentLevel == "3":
+				get_tree().change_scene_to_file(Global.endScene)
+		
 		# Handle jump.
 		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():
