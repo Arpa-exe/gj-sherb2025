@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bu2702fu62swp"]
+[gd_scene load_steps=30 format=3 uid="uid://bu2702fu62swp"]
 
 [ext_resource type="Texture2D" uid="uid://peoxbglwu53q" path="res://Assets/Hana Caraka - Base Character [sample]/idle.png" id="1_6jcjh"]
 [ext_resource type="Script" path="res://oli/scripts/player_test.gd" id="1_38qmw"]
@@ -85,6 +85,10 @@ region = Rect2(320, 0, 80, 80)
 atlas = ExtResource("4_437lk")
 region = Rect2(400, 0, 80, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8plg4"]
+atlas = ExtResource("4_437lk")
+region = Rect2(80, 0, 80, 80)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_0wo0w"]
 animations = [{
 "frames": [{
@@ -166,6 +170,14 @@ animations = [{
 "loop": false,
 "name": &"die",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8plg4")
+}],
+"loop": true,
+"name": &"wall",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvh0w"]
@@ -186,9 +198,8 @@ script = ExtResource("1_38qmw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0wo0w")
-animation = &"IdleRight"
+animation = &"wall"
 autoplay = "IdleRight"
-frame_progress = 0.504879
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)

@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -410.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-@onready var nextLabel = $CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/nextLabel
+@onready var nextLabel = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/nextLabel"
 @onready var missing1 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect"
 @onready var missing2 = $"../CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect2"
 
@@ -21,22 +21,24 @@ const JUMP_VELOCITY = -300.0
 var is_boing = false
 var alive = true
 var damage = true
+var can_wall = 0
 var cooldown = 2 # 2 seconds before being able to be hit again
 var timer_cooldown = 0
 var collectibles
 
 func _ready() -> void:
+	Global.reset()
 	Global.currentHealth = 4
 	progressBarLabel.text = str("Health: ", Global.currentHealth, "/4")
 	collectibles = [collectibleUI, collectibleUI2, collectibleUI3]
 
 func catch_crystal():
 	Global.powers.push_back("boing")
-	missing1.visible = false
+	missing1.visible = true
 	
 func catch_dash_crystal():
 	Global.powers.push_back("bing")
-	missing2.visible = false
+	missing2.visible = true
 
 func _physics_process(delta: float) -> void:
 	if timer_cooldown > 0:
@@ -44,18 +46,26 @@ func _physics_process(delta: float) -> void:
 		if timer_cooldown <= 0:
 			damage = true
 	if alive:
+		var on_wall = is_on_wall() and not is_on_floor()
+		if on_wall:
+			animated_sprite_2d.play("wall")
+			print("you are touching the wall")
 		if len(Global.collectibleLeft) == 0:
-			pass
 			missingLabel.visible = false
 		else:
 			missingLabel.visible = true
 		# Add the gravity.
 		if not is_on_floor():
-			velocity += get_gravity() * delta
+			velocity += get_gravity() * delta * 1.5
 
 		# Handle jump.
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+		if Input.is_action_just_pressed("jump"):
+			if is_on_floor():
+				velocity.y = JUMP_VELOCITY
+			elif on_wall and can_wall <= 0:
+				can_wall = 10
+				velocity = Vector2(300 * get_wall_normal().x, -200)
+			
 
 		if Input.is_action_just_pressed("use_item") and len(Global.powers) > 0 and not is_boing:
 			is_boing = true
@@ -66,17 +76,21 @@ func _physics_process(delta: float) -> void:
 					var tween = create_tween()
 					tween.tween_property(self, "global_position:y", global_position.y - 48, 0.1)
 					velocity.y = JUMP_VELOCITY
+					missing1.visible = false
 					is_boing = false
 				"bing":
 					var direction := Input.get_axis("move_left", "move_right")
 					if direction == 0:
 						Global.powers.push_front("bing")
 						is_boing = false
+						missing2.visible = false
+						missing2.visible = true
 					else:
 						spawn_dash(direction)
 						var tween = create_tween()
 						tween.tween_property(self, "global_position:x", global_position.x + 80 * direction, 0.2)
 						is_boing = false
+						missing2.visible = false
 				_:
 					pass
 			
@@ -95,8 +109,9 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.play("Run")
 		else:
 			animated_sprite_2d.play("Jump")
-		
-		if direction:
+		if can_wall > 0:
+			can_wall -= 1
+		elif direction:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -129,7 +144,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			get_tree().change_scene_to_file(Global.endScene)
 	elif area.get_parent().name == "Keys":
 		print('collectibleCount: ', Global.collectibleCount)
-		var count = Global.collectibleCount - 1
+		var count = Global.collectibleCount
 		collectibles[count].visible = false
 		print('key')
 	elif (area.get_parent().name == "enemyFireSlime"):
