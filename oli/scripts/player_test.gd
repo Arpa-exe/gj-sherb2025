@@ -199,6 +199,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 func die():
+	Global.currentHealth = 0
+	var healthTween = create_tween()
+	healthTween.tween_property(progressBar, "value", Global.currentHealth, 1)
+	progressBarLabel.text = str("Health: ", Global.currentHealth, "/4")
 	alive = false
 	animated_sprite_2d.play("die")
 
