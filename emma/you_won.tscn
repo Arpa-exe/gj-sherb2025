@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://bo2tpg0tuluaw"]
+
+[ext_resource type="Texture2D" uid="uid://dm62l2s621321" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/1.png" id="1_la5la"]
+[ext_resource type="Texture2D" uid="uid://b5ogde7qhn5gs" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/2.png" id="2_asro5"]
+[ext_resource type="Texture2D" uid="uid://235u45bvncel" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/3.png" id="3_23ihs"]
+[ext_resource type="Texture2D" uid="uid://mx717paob2cr" path="res://jade-murtaza/Level2/Assetssss/bg/nature 3/4.png" id="4_owcoa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hm2kp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ykt5"]
+bg_color = Color(0.691357, 0.691357, 0.691357, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ih57a"]
+bg_color = Color(0.540987, 0.540992, 0.540987, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rffgx"]
+bg_color = Color(0.986752, 0.986752, 0.986752, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 11
+shadow_size = 5
+shadow_offset = Vector2(3.4, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pnbq0"]
+
+[node name="youWon" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_la5la")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_asro5")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("3_23ihs")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("4_owcoa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Text" type="Label" parent="."]
+offset_left = -55.0
+offset_top = -149.0
+offset_right = 300.0
+offset_bottom = -59.0
+theme_override_font_sizes/font_size = 18
+text = "You’ve made it out. 
+The laboratory is behind you, 
+but the real journey is just beginning"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 71.0
+offset_top = 88.0
+offset_right = 197.0
+offset_bottom = 128.0
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hm2kp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ykt5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ih57a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rffgx")
+text = "Quit"
+
+[node name="Main Menu" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pnbq0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ykt5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ih57a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rffgx")
+text = "Main Menu"
